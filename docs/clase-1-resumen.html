@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Del prompt al criterio | IA Aplicada</title>
+<meta name="description" content="Experiencia educativa visual para aprender a pedir, trabajar y verificar resultados con inteligencia artificial generativa.">
+<meta name="author" content="Ingeniero César Uribe">
+<meta property="og:title" content="Del prompt al criterio | IA Aplicada">
+<meta property="og:description" content="Experiencia educativa visual para aprender a pedir, trabajar y verificar resultados con inteligencia artificial generativa.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyIDE5LjI3MjdDMjIgMjAuNzc5IDIwLjc3OSAyMiAxOS4yNzI3IDIySDE0LjcyNzNDMTMuMjIxIDIyIDEyIDIwLjc3OSAxMiAxOS4yNzI3VjEySDE5LjI3MjdDMjAuNzc5IDEyIDIyIDEzLjIyMSAyMiAxNC43MjczVjE5LjI3MjdaIiBmaWxsPSIjNjhDNEZGIi8+CjxwYXRoIGQ9Ik0yMCAyQzIxLjEwNDYgMiAyMiAyLjg5NTQzIDIyIDRWN0MyMiA4LjEwNDU3IDIxLjEwNDYgOSAyMCA5SDE3QzE1Ljg5NTQgOSAxNSA4LjEwNDU3IDE1IDdWNEMxNSAyLjg5NTQzIDE1Ljg5NTQgMiAxNyAySDIwWiIgZmlsbD0iIzBDNzlEOCIvPgo8cGF0aCBkPSJNNyAxNUM4LjEwNDU3IDE1IDkgMTUuODk1NCA5IDE3VjIwQzkgMjEuMTA0NiA4LjEwNDU3IDIyIDcgMjJINEMyLjg5NTQzIDIyIDIgMjEuMTA0NiAyIDIwVjE3QzIgMTUuODk1NCAyLjg5NTQzIDE1IDQgMTVIN1oiIGZpbGw9IiMwQzc5RDgiLz4KPHBhdGggZD0iTTEyIDEySDQuNzI3MjdDMy4yMjEwNCAxMiAyIDEwLjc3OSAyIDkuMjcyNzNWNC43MjcyN0MyIDMuMjIxMDQgMy4yMjEwNCAyIDQuNzI3MjcgMkg5LjI3MjczQzEwLjc3OSAyIDEyIDMuMjIxMDQgMTIgNC43MjcyN1YxMloiIGZpbGw9IiMyRTlFRkYiLz4KPC9zdmc+Cg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---- Reset base (equivalente a Tailwind Preflight) ---- */
+*,::before,::after{box-sizing:border-box;border:0 solid;margin:0;padding:0}
+html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4}
+body{line-height:inherit}
+hr{height:0;color:inherit;border-top-width:1px}
+abbr:where([title]){text-decoration:underline dotted}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+a{color:inherit;text-decoration:inherit}
+b,strong{font-weight:bolder}
+code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1em}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-.25em}sup{top:-.5em}
+table{text-indent:0;border-color:inherit;border-collapse:collapse}
+button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+button,select{text-transform:none}
+button,[type='button'],[type='reset'],[type='submit']{-webkit-appearance:button;background-color:transparent;background-image:none}
+:-moz-focusring{outline:auto}
+progress{vertical-align:baseline}
+summary{display:list-item}
+blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}
+fieldset{margin:0;padding:0}
+legend{padding:0}
+ol,ul,menu{list-style:none;margin:0;padding:0}
+textarea{resize:vertical}
+input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
+button,[role="button"]{cursor:pointer}
+:disabled{cursor:default}
+img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}
+img,video{max-width:100%;height:auto}
+[hidden]{display:none!important}
+
+
+/* ---- Estilos del proyecto ---- */
+:root { --paper:#fff; --ink:#09080a; --muted:#666169; --line:#ded9df; --violet:#2a0048; --purple:#800080; --magenta:#d50048; --red:#ff0000; --gradient:linear-gradient(115deg,#2a0048 0%,#800080 45%,#d50048 76%,#ff0000 100%); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:"Inter",sans-serif; }
+button { font:inherit; }
+.topbar { position:fixed; inset:0 0 auto 0; height:82px; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:0 42px 0 36px; background:rgba(255,255,255,.94); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+.brand { border:0; background:transparent; cursor:pointer; padding:0; }.brand img { display:block; width:220px; height:auto; }
+.course-meta { display:flex; gap:40px; font-size:10px; font-weight:700; letter-spacing:.2em; }
+.chapter-rail { position:fixed; z-index:40; top:82px; bottom:0; left:0; width:190px; padding:40px 20px 30px 32px; background:#fff; border-right:1px solid var(--line); }
+.rail-title { margin-bottom:28px; font-size:9px; font-weight:700; letter-spacing:.22em; color:var(--muted); }
+.rail-link { width:100%; display:grid; grid-template-columns:25px 1fr; align-items:center; gap:8px; border:0; background:transparent; padding:11px 0; text-align:left; color:#8b868c; cursor:pointer; }
+.rail-link span { font-size:9px; letter-spacing:.08em; }.rail-link b { font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:600; }
+.rail-link::after { content:""; grid-column:1/3; width:0; height:1px; background:var(--gradient); transition:width .35s ease; }.rail-link.active { color:var(--ink); }.rail-link.active::after { width:100%; }
+.page-shell { margin-left:190px; padding-top:82px; }.chapter-section { min-height:100vh; padding:42px 5.5vw 52px; scroll-margin-top:82px; }
+.section-label,.eyebrow { display:flex; justify-content:space-between; font-size:10px; font-weight:700; letter-spacing:.2em; }.eyebrow { padding-bottom:18px; border-bottom:1px solid var(--ink); }.eyebrow span:first-child,.accent { color:var(--magenta); }
+.hero { display:flex; flex-direction:column; }.hero-grid { flex:1; display:grid; grid-template-columns:1.15fr .85fr; align-items:center; gap:5vw; padding:5vh 0 4vh; }.kicker { margin:0 0 18px; font-size:11px; font-weight:700; letter-spacing:.18em; }
+h1,h2,h3 { font-family:"DM Serif Display",Georgia,serif; font-weight:400; }h1 { margin:0; font-size:clamp(72px,8vw,142px); line-height:.82; letter-spacing:-.05em; }h1 em { color:transparent; background:var(--gradient); background-clip:text; -webkit-background-clip:text; font-weight:400; }
+.hero-lead { max-width:660px; margin:34px 0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(20px,2vw,31px); line-height:1.25; }.primary-button { display:inline-flex; gap:28px; align-items:center; border:0; border-radius:999px; padding:14px 20px; color:white; background:var(--gradient); font-size:10px; font-weight:700; letter-spacing:.14em; cursor:pointer; }.primary-button span { font-size:16px; }
+.hero-figure { position:relative; aspect-ratio:1; max-width:520px; margin-inline:auto; }.orbit { position:absolute; border:1px solid rgba(86,0,114,.28); border-radius:50%; animation:breathe 5s ease-in-out infinite; }.orbit-one { inset:10%; }.orbit-two { inset:24%; border-style:dashed; animation-delay:.5s; }.orbit-three { inset:37%; border-color:rgba(213,0,72,.6); animation-delay:1s; }.core { position:absolute; inset:43%; display:grid; place-items:center; color:white; border-radius:50%; background:var(--gradient); font-size:8px; font-weight:700; letter-spacing:.12em; }.node { position:absolute; padding:8px 11px; background:white; border:1px solid var(--ink); font-size:9px; font-weight:700; letter-spacing:.12em; }.node::before { content:""; display:inline-block; width:6px; height:6px; margin-right:8px; border-radius:50%; background:var(--magenta); }.node-a { left:3%; top:27%; }.node-b { right:0; top:44%; }.node-c { left:18%; bottom:6%; }.figure-index { position:absolute; right:5%; bottom:4%; font-size:9px; letter-spacing:.2em; }
+.hero-footer { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); padding-top:18px; font-size:9px; font-weight:700; letter-spacing:.18em; }.hero-footer span:not(:first-child) { text-align:center; }
+.opening-chapter { border-top:1px solid var(--line); padding-top:52px; }.section-label { color:var(--muted); margin-bottom:12vh; }.opening-grid { display:grid; grid-template-columns:1fr 1fr; gap:8vw; align-items:end; }.opening-grid h2,.placeholder-chapter h2 { margin:0; font-size:clamp(52px,6vw,104px); line-height:.92; letter-spacing:-.035em; }.opening-question { border-left:2px solid var(--purple); padding:20px 0 18px 32px; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(22px,2.2vw,36px); line-height:1.25; }.opening-question p { margin:0 0 16px; color:var(--muted); }.opening-question strong { font-weight:400; color:var(--magenta); }
+.case-strip { display:grid; grid-template-columns:.28fr 1fr .9fr; gap:42px; margin-top:12vh; padding:30px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.case-number,.case-caption { font-size:9px; font-weight:700; letter-spacing:.18em; }.case-caption { color:var(--magenta); }.case-strip h3 { margin:8px 0; font-size:33px; }.case-strip p { max-width:620px; line-height:1.6; }.money-path { display:flex; align-items:center; justify-content:center; gap:10px; font-size:8px; font-weight:700; letter-spacing:.12em; }.money-path span { padding:12px 10px; border:1px solid var(--line); }.money-path .split { color:white; border:0; background:var(--gradient); }
+.placeholder-chapter { min-height:68vh; display:flex; flex-direction:column; justify-content:space-between; border-top:1px solid var(--line); }.placeholder-chapter h2 { max-width:950px; }
+.lesson-section { border-top:1px solid var(--line); padding-top:52px; overflow:hidden; }
+.lesson-heading { margin-bottom:9vh; }.lesson-heading.two-column { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:8vw; }.lesson-heading h2,.verification-hero h2,.final-hero h2 { max-width:1000px; margin:0; font-size:clamp(58px,7.5vw,126px); line-height:.88; letter-spacing:-.045em; }.intro-copy { max-width:650px; margin:28px 0 0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(21px,2vw,32px); line-height:1.35; }.big-note { padding:32px; border-left:1px solid var(--purple); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(24px,2.3vw,38px); line-height:1.25; }.big-note p { margin:0 0 12px; color:var(--muted); }.big-note strong { font-weight:400; color:var(--magenta); }
+.micro-label { font-size:9px; font-weight:700; letter-spacing:.2em; }.prompt-lab { display:grid; grid-template-columns:.72fr 1.28fr; min-height:480px; border:1px solid var(--ink); }.lab-controls { padding:28px; border-right:1px solid var(--ink); }.lab-controls>.micro-label { display:block; margin:0 0 34px; }.layer-button { width:100%; display:grid; grid-template-columns:34px 1fr 20px; align-items:center; gap:10px; padding:19px 0; border:0; border-top:1px solid var(--line); background:transparent; color:var(--muted); text-align:left; cursor:pointer; }.layer-button span { font-size:9px; }.layer-button b { font-size:12px; letter-spacing:.05em; text-transform:uppercase; }.layer-button i { font-style:normal; text-align:right; }.layer-button.selected { color:var(--purple); }.layer-button:last-child { border-bottom:1px solid var(--line); }
+.prompt-output { position:relative; display:flex; flex-direction:column; justify-content:center; padding:70px clamp(28px,5vw,86px); background:linear-gradient(140deg,#fbf7fd,#fff 62%); }.window-dots { position:absolute; left:25px; top:24px; display:flex; gap:6px; }.window-dots i { width:7px; height:7px; border-radius:50%; background:var(--line); }.window-dots i:nth-child(2){background:#800080}.window-dots i:nth-child(3){background:#d50048}.prompt-text { margin:0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(24px,2.4vw,40px); line-height:1.35; }.prompt-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:35px; }.prompt-tags span { padding:7px 9px; color:white; background:var(--gradient); font-size:8px; font-weight:700; letter-spacing:.15em; }
+.principle-band { display:grid; grid-template-columns:.25fr 1fr 1fr; gap:30px; align-items:baseline; margin:9vh 0 5vh; padding:28px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.principle-band p,.principle-band strong { margin:0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(21px,2vw,32px); font-weight:400; }.principle-band strong { color:var(--magenta); }
+.strategy-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); }.strategy-grid article { min-height:300px; padding:28px; display:flex; flex-direction:column; border-right:1px solid var(--line); }.strategy-grid article:last-child { border:0; }.strategy-grid article>span,.strategy-grid small { font-size:9px; font-weight:700; letter-spacing:.18em; }.strategy-grid article>span { color:var(--magenta); }.strategy-grid h3 { margin:50px 0 14px; font-size:35px; }.strategy-grid p { color:var(--muted); line-height:1.65; }.strategy-grid small { margin-top:auto; }
+.cost-equation { display:grid; grid-template-columns:1fr 50px 1fr; gap:20px; align-items:center; margin:8vh 0; padding:42px; color:white; background:var(--gradient); }.cost-equation div { display:flex; flex-direction:column; gap:6px; }.cost-equation span { font-size:9px; letter-spacing:.2em; }.cost-equation b { font-family:"DM Serif Display",Georgia,serif; font-size:34px; font-weight:400; }.cost-equation>i { font-size:32px; font-style:normal; text-align:center; }.cost-equation>p { grid-column:1/-1; margin:18px 0 0; padding-top:20px; border-top:1px solid rgba(255,255,255,.4); font-size:14px; }
+.class-pause { margin:11vh 0 4vh; padding:44px; border:1px solid var(--ink); background:radial-gradient(circle at 90% 15%,rgba(213,0,72,.12),transparent 32%); }.class-pause>span { font-size:9px; font-weight:700; letter-spacing:.2em; color:var(--magenta); }.class-pause h3 { margin:60px 0 12px; font-size:clamp(36px,4vw,66px); }.class-pause p { max-width:800px; font-size:20px; line-height:1.5; }
+.alternate { background:#fcfbfc; }.iteration-loop { display:grid; grid-template-columns:1fr 55px 1fr 55px 1fr 55px; align-items:center; margin:6vh 0 10vh; }.iteration-loop>div { min-height:190px; display:flex; flex-direction:column; justify-content:center; padding:26px; border:1px solid var(--ink); background:#fff; }.iteration-loop>i { font-size:30px; font-style:normal; text-align:center; color:var(--magenta); }.iteration-loop span { font-size:9px; color:var(--magenta); }.iteration-loop b { margin:18px 0 8px; font-family:"DM Serif Display",Georgia,serif; font-size:38px; font-weight:400; }.iteration-loop small { color:var(--muted); }
+.transform-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.transform-grid article { min-height:260px; padding:27px; border-right:1px solid var(--line); }.transform-grid article:last-child { border:0; }.transform-grid span { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--purple); }.transform-grid p { margin-top:62px; font-family:"DM Serif Display",Georgia,serif; font-size:21px; line-height:1.35; }
+.workspace-rule { display:grid; grid-template-columns:.68fr 1.32fr; gap:7vw; align-items:center; margin:12vh 0; }.folder-visual { min-height:280px; display:flex; flex-direction:column; justify-content:flex-end; padding:35px; color:white; background:var(--gradient); clip-path:polygon(0 12%,32% 12%,38% 0,100% 0,100% 100%,0 100%); }.folder-visual span,.folder-visual i { font-size:9px; font-style:normal; letter-spacing:.2em; }.folder-visual b { margin:14px 0 55px; font-family:"DM Serif Display",Georgia,serif; font-size:45px; font-weight:400; }.workspace-rule h3 { margin:15px 0; font-size:clamp(37px,4vw,65px); }.workspace-rule p:last-child { max-width:680px; color:var(--muted); font-size:18px; line-height:1.6; }
+.io-system { display:grid; grid-template-columns:1fr 60px 1.2fr 60px 1fr; align-items:center; }.io-system>i { text-align:center; font-size:26px; font-style:normal; color:var(--magenta); }.io-box { min-height:160px; display:flex; flex-direction:column; justify-content:center; gap:16px; padding:25px; border:1px solid var(--ink); background:#fff; text-align:left; }.io-box span { font-size:9px; font-weight:700; letter-spacing:.2em; color:var(--purple); }.io-box b { font-family:"DM Serif Display",Georgia,serif; font-size:28px; font-weight:400; }.process-box { cursor:pointer; color:white; background:var(--gradient); }.process-box span { color:white; }.process-box.open { box-shadow:0 0 0 8px rgba(128,0,128,.08); }.process-reveal { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; padding:34px; border:1px solid var(--line); border-top:0; background:#fff; }.process-reveal span { padding:9px 12px; border:1px solid var(--purple); color:var(--purple); font-size:9px; font-weight:700; letter-spacing:.15em; }
+.verification-hero { display:grid; grid-template-columns:.28fr 1fr .6fr; align-items:end; gap:38px; margin-bottom:11vh; }.verification-hero h2 { grid-column:2; }.verification-hero>p { grid-column:3; max-width:420px; margin:0; font-size:18px; line-height:1.6; }.risk-lab { display:grid; grid-template-columns:.8fr 1.2fr; min-height:390px; border:1px solid var(--ink); }.risk-control { display:flex; flex-direction:column; justify-content:center; padding:40px; border-right:1px solid var(--ink); }.risk-control input { width:100%; margin:70px 0 16px; accent-color:var(--magenta); }.risk-labels { display:flex; justify-content:space-between; font-size:8px; font-weight:700; letter-spacing:.15em; }.risk-result { display:flex; flex-direction:column; justify-content:center; padding:clamp(35px,6vw,90px); transition:background .35s,color .35s; }.risk-result>span,.risk-result>b { font-size:9px; letter-spacing:.2em; }.risk-result h3 { margin:25px 0 12px; font-size:clamp(36px,4vw,62px); }.risk-result p { max-width:680px; line-height:1.65; }.risk-result>b { margin-top:30px; }.risk-0 { background:#fff; }.risk-1 { background:#f7eef8; }.risk-2 { color:white; background:var(--gradient); }
+.rule-monument { display:grid; grid-template-columns:.28fr 1fr 50px 1fr; align-items:center; gap:25px; margin:8vh 0; padding:33px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.rule-monument span { font-size:9px; font-weight:700; letter-spacing:.2em; }.rule-monument p { margin:0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(25px,2.7vw,44px); }.rule-monument i { font-size:27px; font-style:normal; color:var(--magenta); }
+.certainty-grid { display:grid; grid-template-columns:1fr 1fr; gap:7vw; align-items:center; margin:11vh 0; }.false-equality { display:flex; flex-direction:column; align-items:center; gap:24px; padding:50px 30px; border:1px solid var(--ink); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(27px,3vw,48px); }.false-equality i { font-size:70px; font-style:normal; color:var(--magenta); }.certainty-grid>div:last-child { font-size:18px; line-height:1.65; }.certainty-grid ul { padding-left:20px; color:var(--muted); }
+.evidence-flow { display:grid; grid-template-columns:1fr 50px 1fr 50px 1fr; align-items:center; }.evidence-flow>div { min-height:220px; padding:28px; border:1px solid var(--line); }.evidence-flow>i { text-align:center; font-style:normal; color:var(--magenta); }.evidence-flow span { color:var(--magenta); font-size:9px; }.evidence-flow b { display:block; margin:45px 0 10px; letter-spacing:.15em; }.evidence-flow p { color:var(--muted); line-height:1.5; }.source-workflow { display:grid; grid-template-columns:1fr 40px 1fr 40px 1fr; gap:8px; align-items:center; margin-top:10vh; padding:38px; color:white; background:var(--violet); }.source-workflow div { display:flex; flex-direction:column; gap:14px; }.source-workflow span { font-size:8px; letter-spacing:.18em; color:#f397bc; }.source-workflow b { font-family:"DM Serif Display",Georgia,serif; font-size:23px; font-weight:400; }.source-workflow>i { text-align:center; font-size:25px; font-style:normal; }
+.token-diagram { display:grid; grid-template-columns:1fr 40px 1.2fr 40px 1fr 40px 1fr; align-items:stretch; margin:8vh 0 18px; }.token-diagram>div { min-height:180px; display:flex; flex-direction:column; justify-content:center; gap:25px; padding:24px; border:1px solid var(--line); }.token-diagram>i { align-self:center; text-align:center; font-style:normal; color:var(--magenta); }.token-diagram span { font-size:8px; font-weight:700; letter-spacing:.18em; }.token-diagram b { font-family:"DM Serif Display",Georgia,serif; font-size:24px; font-weight:400; }.token-box b { display:flex; flex-wrap:wrap; gap:4px; }.token-box em { padding:4px; font-style:normal; background:#f1e7f3; }.model-core { color:white; background:var(--gradient); }.diagram-caption { margin:0; color:var(--muted); font-size:10px; letter-spacing:.05em; }
+.dual-principles { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:11vh 0; }.dual-principles article { min-height:350px; padding:38px; border:1px solid var(--ink); }.dual-principles span { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--magenta); }.dual-principles h3 { margin:72px 0 18px; font-size:clamp(30px,3vw,48px); }.dual-principles p { color:var(--muted); line-height:1.6; }
+.system-stack { display:grid; grid-template-columns:.5fr 1.5fr; gap:5vw; margin:12vh 0; }.stack-label span { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--magenta); }.stack-label h3 { font-size:50px; }.stack-cards { display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line); }.stack-cards article { min-height:230px; padding:26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }.stack-cards article:nth-child(even) { border-right:0; }.stack-cards article:nth-child(n+3) { border-bottom:0; }.stack-cards span { font-size:9px; color:var(--magenta); }.stack-cards b { display:block; margin:38px 0 12px; letter-spacing:.15em; }.stack-cards p { color:var(--muted); line-height:1.5; }
+.limits-grid { display:grid; grid-template-columns:repeat(3,1fr); color:white; background:var(--gradient); }.limits-grid article { min-height:330px; padding:32px; border-right:1px solid rgba(255,255,255,.32); }.limits-grid article:last-child { border:0; }.limits-grid span { font-size:8px; letter-spacing:.18em; }.limits-grid h3 { margin:72px 0 16px; font-size:46px; }.limits-grid p { line-height:1.6; }
+.taxonomy-lab { display:grid; grid-template-columns:.75fr 1.25fr; margin:12vh 0 7vh; border:1px solid var(--ink); }.taxonomy-nav { padding:28px; border-right:1px solid var(--ink); }.taxonomy-nav>.micro-label { margin-bottom:26px; }.taxonomy-button { width:100%; display:grid; grid-template-columns:34px .7fr 1.3fr; align-items:center; gap:10px; padding:15px 0; border:0; border-bottom:1px solid var(--line); background:transparent; color:var(--muted); text-align:left; cursor:pointer; }.taxonomy-button span,.taxonomy-button small { font-size:8px; }.taxonomy-button b { font-size:11px; letter-spacing:.08em; text-transform:uppercase; }.taxonomy-button.active { color:var(--magenta); }.taxonomy-visual { position:relative; min-height:620px; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; background:linear-gradient(145deg,#fff,#fbf5fb); }.tax-ring { position:absolute; border:1px solid #ded4e0; border-radius:50%; transition:.4s; }.ring-0{inset:6%}.ring-1{inset:13%}.ring-2{inset:20%}.ring-3{inset:27%}.ring-4{inset:34%}.ring-5{inset:41%}.tax-ring.lit { border-color:var(--magenta); box-shadow:0 0 18px rgba(213,0,72,.08); }.tax-center { z-index:1; width:112px; height:112px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; border-radius:50%; background:var(--gradient); }.tax-center span { font-size:7px; letter-spacing:.15em; }.tax-center b { margin-top:8px; font-family:"DM Serif Display",Georgia,serif; font-size:26px; }.taxonomy-visual>p { position:absolute; bottom:34px; max-width:430px; padding:0 24px; text-align:center; color:var(--muted); line-height:1.5; }.selection-question { display:flex; flex-direction:column; gap:18px; padding:46px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(30px,3.6vw,58px); }.selection-question del { color:var(--muted); }.selection-question strong { color:var(--magenta); font-weight:400; }
+.final-section { padding-bottom:0; }.final-hero { margin-bottom:10vh; }.master-sequence { display:grid; grid-template-columns:1fr 45px 1fr 45px 1fr; align-items:center; }.master-sequence article { min-height:300px; padding:32px; border:1px solid var(--ink); }.master-sequence>i { font-size:28px; font-style:normal; text-align:center; color:var(--magenta); }.master-sequence span { font-size:9px; color:var(--magenta); }.master-sequence h3 { margin:65px 0 12px; font-size:48px; }.master-sequence p { color:var(--muted); line-height:1.55; }
+.practice-card { display:grid; grid-template-columns:1fr 1fr; gap:6vw; margin:12vh 0; padding:50px; color:white; background:var(--gradient); }.practice-card span { font-size:9px; letter-spacing:.18em; }.practice-card h3 { margin:70px 0 0; font-size:clamp(45px,5vw,78px); }.practice-card ol { list-style:none; margin:0; padding:0; }.practice-card li { display:grid; grid-template-columns:45px 1fr; gap:15px; padding:20px 0; border-bottom:1px solid rgba(255,255,255,.35); line-height:1.5; }.practice-card li span { color:#f9b7cf; }
+.closing-question { margin:12vh 0; text-align:center; }.closing-question span { font-size:9px; font-weight:700; letter-spacing:.2em; color:var(--magenta); }.closing-question h3 { max-width:1100px; margin:50px auto 18px; font-size:clamp(48px,6vw,94px); line-height:.95; }.closing-question p { color:var(--muted); font-size:18px; }.closing-statement { display:grid; grid-template-columns:.35fr 1fr; gap:18px 50px; align-items:baseline; padding:45px 0; border-top:1px solid var(--ink); }.closing-statement p { margin:0; font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }.closing-statement del,.closing-statement strong { font-family:"DM Serif Display",Georgia,serif; font-size:clamp(27px,3vw,48px); font-weight:400; }.closing-statement del { color:var(--muted); }.closing-statement strong { color:var(--magenta); }.site-footer { display:grid; grid-template-columns:1fr 1fr .6fr; gap:30px; align-items:center; margin:10vh -5.5vw 0; padding:45px 5.5vw; border-top:1px solid var(--line); }.site-footer img { width:250px; }.site-footer>div { display:flex; flex-direction:column; gap:9px; font-size:10px; letter-spacing:.08em; }.site-footer a { color:var(--ink); text-decoration:none; }
+@keyframes breathe { 0%,100% { transform:scale(1); opacity:.7; } 50% { transform:scale(1.025); opacity:1; } }@media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; animation:none!important; } }
+@media (max-width:900px) { .topbar { height:68px; padding:0 18px; }.brand img { width:170px; }.course-meta span:first-child { display:none; }.chapter-rail { top:auto; bottom:0; width:100%; height:62px; display:flex; padding:0 10px; border:0; border-top:1px solid var(--line); overflow-x:auto; }.rail-title,.rail-link span { display:none; }.rail-link { display:block; min-width:86px; padding:14px 8px 8px; text-align:center; }.rail-link b { font-size:9px; }.rail-link::after { display:block; margin-top:10px; }.page-shell { margin-left:0; padding-top:68px; padding-bottom:62px; }.chapter-section { padding:28px 22px 44px; scroll-margin-top:68px; }.hero-grid,.opening-grid,.lesson-heading.two-column,.prompt-lab,.workspace-rule,.risk-lab,.verification-hero,.certainty-grid,.system-stack,.taxonomy-lab,.practice-card { grid-template-columns:1fr; }.hero-grid { padding-top:7vh; }.hero-figure { width:min(78vw,440px); }.hero-footer { grid-template-columns:repeat(2,1fr); gap:12px; }.case-strip { grid-template-columns:1fr; gap:12px; }.money-path { justify-content:flex-start; flex-wrap:wrap; }.section-label { margin-bottom:8vh; }.lab-controls,.risk-control,.taxonomy-nav { border-right:0; border-bottom:1px solid var(--ink); }.principle-band { grid-template-columns:1fr; }.strategy-grid,.transform-grid,.limits-grid { grid-template-columns:1fr; }.strategy-grid article,.transform-grid article,.limits-grid article { border-right:0; border-bottom:1px solid var(--line); }.iteration-loop,.io-system,.evidence-flow,.token-diagram,.master-sequence { grid-template-columns:1fr; gap:10px; }.iteration-loop>i,.io-system>i,.evidence-flow>i,.token-diagram>i,.master-sequence>i { transform:rotate(90deg); }.cost-equation { grid-template-columns:1fr; }.cost-equation>p { grid-column:1; }.rule-monument { grid-template-columns:1fr; }.verification-hero h2,.verification-hero>p { grid-column:1; }.dual-principles,.stack-cards { grid-template-columns:1fr; }.stack-cards article { border-right:0!important; border-bottom:1px solid var(--line)!important; }.taxonomy-button { grid-template-columns:30px .7fr 1.3fr; }.taxonomy-visual { min-height:500px; }.master-sequence article { min-height:230px; }.closing-statement { grid-template-columns:1fr; }.site-footer { grid-template-columns:1fr; margin-left:-22px; margin-right:-22px; padding-left:22px; padding-right:22px; } }
+
+
+/* ---- Ajuste de conversion ---- */
+/* .hero-figure quedaba en 0x0: al ser item de grid con margin-inline:auto no se
+   estira, y todos sus hijos son absolutos. Se fija el ancho para que el diagrama
+   FIG. 01 (orbitas + nodos) se vea como indica el diseno. */
+.hero-figure { width:100%; }
+</style>
+</head>
+<body>
+<main>
+  <header class="topbar">
+    <button class="brand" data-goto="inicio" aria-label="Volver al inicio">
+      <img src="data:image/svg+xml;base64,PHN2ZwogIHdpZHRoPSI5ODAiCiAgaGVpZ2h0PSIyMjAiCiAgdmlld0JveD0iMCAwIDk4MCAyMjAiCiAgZmlsbD0ibm9uZSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgcm9sZT0iaW1nIgogIGFyaWEtbGFiZWw9IklBIEFQTElDQURBIOKAlCBaRUdFTCIKPgoKICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICBpZD0iaWFHcmFkaWVudCIKICAgICAgeDE9IjQyIgogICAgICB5MT0iNTIiCiAgICAgIHgyPSIxNTAiCiAgICAgIHkyPSIxNjAiCiAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiMyQTAwNDgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIyMiUiICBzdG9wLWNvbG9yPSIjNTYwMDcyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNDUlIiAgc3RvcC1jb2xvcj0iIzgwMDA4MCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY3JSIgIHN0b3AtY29sb3I9IiNBOTAwNzIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NCUiICBzdG9wLWNvbG9yPSIjRDUwMDQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGMDAwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDwhLS0gSVNPVElQTyAtLT4KICA8cmVjdAogICAgeD0iNDgiCiAgICB5PSI1NiIKICAgIHdpZHRoPSIxMDAiCiAgICBoZWlnaHQ9IjEwMCIKICAgIGZpbGw9Im5vbmUiCiAgICBzdHJva2U9InVybCgjaWFHcmFkaWVudCkiCiAgICBzdHJva2Utd2lkdGg9IjE1IgogICAgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIKICAvPgoKICA8IS0tIEJMT1FVRSBUSVBPR1LDgUZJQ08gLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTgwIDApIj4KCiAgICA8IS0tIE5vbWJyZSBwcmluY2lwYWwgLS0+CiAgICA8dGV4dAogICAgICB4PSIwIgogICAgICB5PSIxMTYiCiAgICAgIGZpbGw9IiMwMDAwMDAiCiAgICAgIGZvbnQtZmFtaWx5PSInRE0gU2VyaWYgRGlzcGxheScsICdUaW1lcyBOZXcgUm9tYW4nLCBHZW9yZ2lhLCBzZXJpZiIKICAgICAgZm9udC1zaXplPSI3NiIKICAgICAgZm9udC13ZWlnaHQ9IjQwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiCiAgICA+CiAgICAgIElBIEFQTElDQURBCiAgICA8L3RleHQ+CgogICAgPCEtLSBGaXJtYSBpbnN0aXR1Y2lvbmFsIC0tPgogICAgPHRleHQKICAgICAgeD0iMiIKICAgICAgeT0iMTU0IgogICAgICBmaWxsPSIjMDAwMDAwIgogICAgICBmb250LWZhbWlseT0iJ0ludGVyJywgQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIKICAgICAgZm9udC1zaXplPSIyNyIKICAgICAgZm9udC13ZWlnaHQ9IjYwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9IjciCiAgICA+CiAgICAgIFpFR0VMCiAgICA8L3RleHQ+CgogIDwvZz4KCjwvc3ZnPgo=" alt="IA Aplicada — Zegel">
+    </button>
+    <div class="course-meta">
+      <span>CURSO DIGITAL</span>
+      <span>FUNDAMENTOS · 01</span>
+    </div>
+  </header>
+
+  <aside class="chapter-rail" aria-label="Navegación por capítulos">
+    <div class="rail-title">RECORRIDO</div>
+    <button class="rail-link active" data-rail="inicio" data-goto="inicio"><span>00</span><b>Inicio</b></button>
+    <button class="rail-link" data-rail="problema" data-goto="problema"><span>01</span><b>El problema</b></button>
+    <button class="rail-link" data-rail="peticion" data-goto="peticion"><span>02</span><b>La petición</b></button>
+    <button class="rail-link" data-rail="proceso" data-goto="proceso"><span>03</span><b>El sistema</b></button>
+    <button class="rail-link" data-rail="verificacion" data-goto="verificacion"><span>04</span><b>Verificar</b></button>
+    <button class="rail-link" data-rail="mapa" data-goto="mapa"><span>05</span><b>El mapa</b></button>
+    <button class="rail-link" data-rail="practica" data-goto="practica"><span>06</span><b>Aplicar</b></button>
+  </aside>
+
+  <div class="page-shell">
+
+    <section id="inicio" class="hero chapter-section">
+      <div class="eyebrow"><span>MÓDULO 01</span><span>IA GENERATIVA APLICADA</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">APRENDER A TRABAJAR CON IA</p>
+          <h1>Del <em>prompt</em><br>al criterio</h1>
+          <p class="hero-lead">Una exploración visual para comprender cómo pedir, trabajar y verificar resultados con inteligencia artificial generativa.</p>
+          <button class="primary-button" data-goto="problema">COMENZAR EL RECORRIDO <span>↓</span></button>
+        </div>
+        <div class="hero-figure" aria-label="Diagrama del proceso de trabajo con inteligencia artificial">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="core">CRITERIO</div>
+          <span class="node node-a">PEDIR</span>
+          <span class="node node-b">TRABAJAR</span>
+          <span class="node node-c">VERIFICAR</span>
+          <span class="figure-index">FIG. 01</span>
+        </div>
+      </div>
+      <div class="hero-footer">
+        <span>OBSERVAR</span><span>COMPRENDER</span><span>CONECTAR</span><span>APLICAR</span>
+      </div>
+    </section>
+
+    <section id="problema" class="chapter-section opening-chapter">
+      <div class="section-label"><span>CAPÍTULO 01</span><span>EL PUNTO DE PARTIDA</span></div>
+      <div class="opening-grid">
+        <div>
+          <p class="kicker accent">PRINCIPIO</p>
+          <h2>No empieces<br>por la herramienta.</h2>
+        </div>
+        <div class="opening-question">
+          <p>Si mañana dominaras mágicamente todo sobre inteligencia artificial…</p>
+          <strong>¿qué problema resolverías primero?</strong>
+        </div>
+      </div>
+      <div class="case-strip">
+        <span class="case-number">CASO 01</span>
+        <div>
+          <p class="case-caption">DETRACCIÓN Y CUENTA SPOT</p>
+          <h3>¿Por qué no se paga todo al proveedor?</h3>
+          <p>Una pregunta concreta convierte una tecnología abstracta en un trabajo que podemos observar, mejorar y verificar.</p>
+        </div>
+        <div class="money-path" aria-hidden="true">
+          <span>COMPRADOR</span><i>→</i><span class="split">PAGO</span><i>↗</i><span>PROVEEDOR</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="peticion" class="chapter-section lesson-section">
+      <div class="section-label"><span>CAPÍTULO 02</span><span>CONSTRUIR LA PETICIÓN</span></div>
+      <div class="lesson-heading two-column">
+        <div>
+          <p class="kicker accent">ESTRUCTURA MÍNIMA</p>
+          <h2>Resultado<br>+ contexto</h2>
+        </div>
+        <div class="big-note">
+          <p>Un prompt no es un código secreto.</p>
+          <strong>Es una forma de reducir ambigüedad.</strong>
+        </div>
+      </div>
+
+      <div class="prompt-lab">
+        <div class="lab-controls">
+          <p class="micro-label">LAB. 01 · CONSTRUCTOR POR CAPAS</p>
+          <button class="layer-button selected" data-layer="0"><span>01</span><b>Acción y objeto</b><i>●</i></button>
+          <button class="layer-button" data-layer="1"><span>02</span><b>Contexto</b><i>+</i></button>
+          <button class="layer-button" data-layer="2"><span>03</span><b>Resultado</b><i>+</i></button>
+          <button class="layer-button" data-layer="3"><span>04</span><b>Forma</b><i>+</i></button>
+        </div>
+        <div class="prompt-output">
+          <div class="window-dots"><i></i><i></i><i></i></div>
+          <p class="prompt-text">Explícame qué es una detracción y una Cuenta SPOT.<span data-frag="1" hidden> Trabajo en administración y recién estoy familiarizándome con conceptos tributarios.</span><span data-frag="2" hidden> Quiero comprender por qué una parte del pago va al Banco de la Nación en lugar de pagarse al proveedor.</span><span data-frag="3" hidden> Utiliza palabras sencillas y desarrolla un ejemplo con una operación de S/ 1,000.</span></p>
+          <div class="prompt-tags">
+            <span>ACCIÓN</span>
+            <span data-tag="1" hidden>CONTEXTO</span>
+            <span data-tag="2" hidden>RESULTADO</span>
+            <span data-tag="3" hidden>FORMA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="principle-band">
+        <span class="micro-label">PRINCIPIO 02</span>
+        <p>La petición correcta no es la más larga.</p>
+        <strong>Es la que resulta suficiente para el trabajo.</strong>
+      </div>
+
+      <div class="strategy-grid">
+        <article><span>01</span><h3>Sentido común</h3><p>Describe con naturalidad qué necesitas. Es el mejor punto de partida cuando el problema es sencillo.</p><small>BAJO COSTO DE PREPARACIÓN</small></article>
+        <article><span>02</span><h3>Capas</h3><p>Añade contexto, resultado, formato y restricciones solo cuando ayuden a controlar la salida.</p><small>CONTROL PROGRESIVO</small></article>
+        <article><span>03</span><h3>Estructura formal</h3><p>Organiza rol, objetivo, contexto, formato y advertencias cuando el resultado sea importante o complejo.</p><small>MAYOR PRECISIÓN INICIAL</small></article>
+      </div>
+
+      <div class="cost-equation">
+        <div><span>COSTO DE PREPARAR</span><b>la petición</b></div>
+        <i>↔</i>
+        <div><span>COSTO DE CORREGIR</span><b>el resultado</b></div>
+        <p>Cuando mejorar la petición cuesta más que probarla, prueba.</p>
+      </div>
+
+      <aside class="class-pause">
+        <span>PAUSA DE CLASE · 03 MIN</span>
+        <h3>Piensa en una tarea real de esta semana.</h3>
+        <p>¿Qué resultado necesitas? ¿Qué información necesita el sistema para ayudarte?</p>
+      </aside>
+    </section>
+
+    <section id="proceso" class="chapter-section lesson-section alternate">
+      <div class="section-label"><span>CAPÍTULO 03</span><span>TRABAJAR CON LA RESPUESTA</span></div>
+      <div class="lesson-heading">
+        <p class="kicker accent">DEL PROMPT AL PROCESO</p>
+        <h2>La primera respuesta<br>no es el final.</h2>
+        <p class="intro-copy">Una conversación de trabajo permite aclarar, corregir, profundizar y transformar. La calidad emerge de la interacción, no solamente del mensaje inicial.</p>
+      </div>
+
+      <div class="iteration-loop" aria-label="Ciclo iterativo de trabajo">
+        <div><span>01</span><b>PEDIR</b><small>Define el siguiente movimiento</small></div>
+        <i>→</i>
+        <div><span>02</span><b>RECIBIR</b><small>Observa la salida</small></div>
+        <i>→</i>
+        <div><span>03</span><b>EVALUAR</b><small>Detecta la distancia</small></div>
+        <i>↻</i>
+      </div>
+
+      <div class="transform-grid">
+        <article><span>ACLARAR</span><p>“Todavía no entiendo por qué ese dinero sigue perteneciendo al proveedor. Explícalo de otra manera.”</p></article>
+        <article><span>PROFUNDIZAR</span><p>“Sigue el recorrido del dinero paso a paso con una operación de S/ 1,000.”</p></article>
+        <article><span>TRANSFORMAR</span><p>“Convierte la explicación en una tabla con actores, acciones, destino y finalidad.”</p></article>
+        <article><span>CRITICAR</span><p>“Busca supuestos débiles, riesgos y situaciones en las que esta explicación podría fallar.”</p></article>
+      </div>
+
+      <div class="workspace-rule">
+        <div class="folder-visual"><span>EXPEDIENTE</span><b>DETRACCIONES</b><i>12 mensajes</i></div>
+        <div><p class="kicker">ORGANIZACIÓN</p><h3>Un problema → un espacio de conversación</h3><p>El historial funciona como contexto. Separar asuntos mejora el orden, reduce interferencias y facilita retomar el trabajo.</p></div>
+      </div>
+
+      <div class="io-system">
+        <button class="io-box input-box" data-io="close"><span>ENTRADA</span><b>Pregunta + contexto</b></button>
+        <i>→</i>
+        <button class="io-box process-box" data-io="toggle"><span>PROCESO</span><b data-process-label>ABRIR LA CAJA</b></button>
+        <i>→</i>
+        <div class="io-box"><span>SALIDA</span><b>Respuesta generada</b></div>
+      </div>
+      <div class="process-reveal" data-process-reveal hidden>
+        <span>TOKENS</span><span>MODELO</span><span>CONTEXTO FINITO</span><span>HERRAMIENTAS</span><span>GENERACIÓN</span>
+      </div>
+    </section>
+
+    <section id="verificacion" class="chapter-section lesson-section">
+      <div class="section-label"><span>CAPÍTULO 04</span><span>EVIDENCIA Y RIESGO</span></div>
+      <div class="verification-hero">
+        <span class="micro-label">LA PREGUNTA INCÓMODA</span>
+        <h2>¿Qué pasa si<br>esto está mal?</h2>
+        <p>Una respuesta puede ser clara, ordenada y convincente sin ser necesariamente verdadera.</p>
+      </div>
+
+      <div class="risk-lab">
+        <div class="risk-control">
+          <p class="micro-label">LAB. 02 · COSTO DEL ERROR</p>
+          <input aria-label="Nivel de riesgo" type="range" min="0" max="2" step="1" value="1" data-risk-input>
+          <div class="risk-labels"><span>BAJO</span><span>INTERMEDIO</span><span>ALTO</span></div>
+        </div>
+        <div class="risk-result risk-1" data-risk-result>
+          <span data-risk-badge>RIESGO INTERMEDIO</span>
+          <h3 data-risk-title>Resumir un informe</h3>
+          <p data-risk-text>Un error puede afectar una reunión o una decisión. Revisa datos, omisiones y sentido general.</p>
+          <b data-risk-level>REVISIÓN CUIDADOSA</b>
+        </div>
+      </div>
+
+      <div class="rule-monument">
+        <span>REGLA 01</span>
+        <p>A mayor costo del error</p><i>→</i><p>mayor exigencia de verificación</p>
+      </div>
+
+      <div class="certainty-grid">
+        <div class="false-equality"><b>TONO DE SEGURIDAD</b><i>≠</i><b>CERTEZA</b></div>
+        <div>
+          <p>El modelo también genera el tono con el que habla. “Definitivamente” no constituye una medición objetiva de confianza.</p>
+          <ul><li>Una fuente citada puede no existir.</li><li>Una fuente real puede no sostener la afirmación.</li><li>Una norma correcta puede estar desactualizada.</li></ul>
+        </div>
+      </div>
+
+      <div class="evidence-flow">
+        <div><span>01</span><b>AFIRMACIÓN</b><p>¿Qué está diciendo exactamente?</p></div><i>→</i>
+        <div><span>02</span><b>EVIDENCIA</b><p>¿Qué fuente lo respalda?</p></div><i>→</i>
+        <div><span>03</span><b>ALCANCE</b><p>¿Hasta dónde permite concluir?</p></div>
+      </div>
+
+      <div class="source-workflow">
+        <div><span>FUENTE PRIMARIA</span><b>Documentación oficial de SUNAT</b></div>
+        <i>+</i>
+        <div><span>IA COMO APOYO</span><b>Explicar · comparar · auditar</b></div>
+        <i>≠</i>
+        <div><span>GARANTÍA AUTOMÁTICA</span><b>La responsabilidad sigue siendo humana</b></div>
+      </div>
+    </section>
+
+    <section id="mapa" class="chapter-section lesson-section map-section">
+      <div class="section-label"><span>CAPÍTULO 05</span><span>ABRIR LA CAJA</span></div>
+      <div class="lesson-heading two-column">
+        <div><p class="kicker accent">DEL EFECTO AL MECANISMO</p><h2>¿Qué está haciendo realmente?</h2></div>
+        <p class="intro-copy">La interfaz parece simple. Detrás hay capas diferentes: un modelo, un contexto disponible, herramientas y decisiones del producto.</p>
+      </div>
+
+      <div class="token-diagram">
+        <div><span>TEXTO</span><b>“Explícame la detracción”</b></div><i>→</i>
+        <div class="token-box"><span>TOKENS</span><b><em>Explí</em><em>came</em><em> la</em><em> detra</em><em>cción</em></b></div><i>→</i>
+        <div class="model-core"><span>MODELO</span><b>continuaciones posibles</b></div><i>→</i>
+        <div><span>TEXTO</span><b>respuesta generada</b></div>
+      </div>
+      <p class="diagram-caption">FIG. 05 · Representación conceptual simplificada. El modelo genera token por token según el contexto y patrones aprendidos.</p>
+
+      <div class="dual-principles">
+        <article><span>OBSERVACIÓN</span><h3>Lo fácil para una persona puede ser extraño para el modelo.</h3><p>Contar caracteres o ejecutar ciertos cálculos no se parece a resumir veinte páginas.</p></article>
+        <article><span>PRINCIPIO</span><h3>Una continuación probable no equivale a una afirmación verdadera.</h3><p>Fluidez y verdad son dimensiones distintas. Por eso necesitamos evidencia externa.</p></article>
+      </div>
+
+      <div class="system-stack">
+        <div class="stack-label"><span>SISTEMA MODERNO</span><h3>El modelo no trabaja solo.</h3></div>
+        <div class="stack-cards">
+          <article><span>01</span><b>MODELO</b><p>Genera lenguaje y razona sobre el contexto disponible.</p></article>
+          <article><span>02</span><b>CONTEXTO</b><p>Mensajes, instrucciones, fragmentos de archivos y resultados.</p></article>
+          <article><span>03</span><b>HERRAMIENTAS</b><p>Búsqueda, código, cálculos, imágenes, archivos y conectores.</p></article>
+          <article><span>04</span><b>PRODUCTO</b><p>Orquesta capacidades dentro de una experiencia utilizable.</p></article>
+        </div>
+      </div>
+
+      <div class="limits-grid">
+        <article><span>VENTANA DE CONTEXTO</span><h3>Finita</h3><p>La conversación, las instrucciones, los documentos y la respuesta compiten por espacio.</p></article>
+        <article><span>INFORMACIÓN</span><h3>Antes / ahora</h3><p>Lo aprendido durante el entrenamiento no es lo mismo que un documento o dato recuperado durante la tarea.</p></article>
+        <article><span>COMPORTAMIENTO</span><h3>No es neutral</h3><p>Datos incompletos, sesgos, ajustes y sicofancia pueden influir en la salida.</p></article>
+      </div>
+
+      <div class="taxonomy-lab">
+        <div class="taxonomy-nav">
+          <p class="micro-label">ATLAS 01 · ¿DÓNDE ESTAMOS?</p>
+          <button class="taxonomy-button active" data-tax="0"><span>01</span><b>Campo</b><small>Inteligencia artificial</small></button>
+          <button class="taxonomy-button" data-tax="1"><span>02</span><b>Tecnologías</b><small>Machine learning · Deep learning</small></button>
+          <button class="taxonomy-button" data-tax="2"><span>03</span><b>Modelos</b><small>Generativos · LLM · Multimodales</small></button>
+          <button class="taxonomy-button" data-tax="3"><span>04</span><b>Sistemas</b><small>Modelo + herramientas + contexto</small></button>
+          <button class="taxonomy-button" data-tax="4"><span>05</span><b>Producto</b><small>ChatGPT · Claude · Gemini</small></button>
+          <button class="taxonomy-button" data-tax="5"><span>06</span><b>Interfaz</b><small>El chat que utiliza la persona</small></button>
+        </div>
+        <div class="taxonomy-visual">
+          <div class="tax-ring ring-0 lit" data-ring="0"></div>
+          <div class="tax-ring ring-1" data-ring="1"></div>
+          <div class="tax-ring ring-2" data-ring="2"></div>
+          <div class="tax-ring ring-3" data-ring="3"></div>
+          <div class="tax-ring ring-4" data-ring="4"></div>
+          <div class="tax-ring ring-5" data-ring="5"></div>
+          <div class="tax-center"><span data-tax-kind>CAMPO</span><b data-tax-short>IA</b></div>
+          <p data-tax-desc>Campo amplio: visión, lenguaje, planificación, robótica y más.</p>
+        </div>
+      </div>
+
+      <div class="selection-question">
+        <del>¿Cuál IA es más inteligente?</del>
+        <strong>¿Qué sistema se adapta mejor a este trabajo?</strong>
+      </div>
+    </section>
+
+    <section id="practica" class="chapter-section lesson-section final-section">
+      <div class="section-label"><span>CAPÍTULO 06</span><span>TRANSFERENCIA</span></div>
+      <div class="final-hero">
+        <p class="kicker">SÍNTESIS OPERATIVA</p>
+        <h2>Del conocimiento<br>a la práctica.</h2>
+      </div>
+
+      <div class="master-sequence">
+        <article><span>01</span><h3>Pedir</h3><p>Define el resultado y aporta el contexto necesario.</p></article>
+        <i>→</i><article><span>02</span><h3>Trabajar</h3><p>Evalúa, corrige, transforma, divide e itera.</p></article>
+        <i>→</i><article><span>03</span><h3>Verificar</h3><p>Ajusta la evidencia al costo del error.</p></article>
+      </div>
+
+      <div class="practice-card">
+        <div><span>DESAFÍO · UNA SEMANA</span><h3>Una tarea real cada día.</h3></div>
+        <ol>
+          <li><span>01</span>Elige un problema que ya ibas a resolver.</li>
+          <li><span>02</span>Formula el resultado y el contexto.</li>
+          <li><span>03</span>Trabaja sobre la primera respuesta.</li>
+          <li><span>04</span>Verifica de acuerdo con el riesgo.</li>
+        </ol>
+      </div>
+
+      <div class="closing-question">
+        <span>UNA PREGUNTA AL TERMINAR</span>
+        <h3>¿Qué hice yo que mejoró el resultado?</h3>
+        <p>Desarrolla criterio. No colecciones frases.</p>
+      </div>
+
+      <div class="closing-statement">
+        <p>La pregunta no es</p><del>“¿Cómo domino la inteligencia artificial?”</del>
+        <p>La pregunta útil es</p><strong>“¿Cómo aprendo a trabajar con ella?”</strong>
+      </div>
+
+      <footer class="site-footer">
+        <img src="data:image/svg+xml;base64,PHN2ZwogIHdpZHRoPSI5ODAiCiAgaGVpZ2h0PSIyMjAiCiAgdmlld0JveD0iMCAwIDk4MCAyMjAiCiAgZmlsbD0ibm9uZSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgcm9sZT0iaW1nIgogIGFyaWEtbGFiZWw9IklBIEFQTElDQURBIOKAlCBaRUdFTCIKPgoKICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICBpZD0iaWFHcmFkaWVudCIKICAgICAgeDE9IjQyIgogICAgICB5MT0iNTIiCiAgICAgIHgyPSIxNTAiCiAgICAgIHkyPSIxNjAiCiAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiMyQTAwNDgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIyMiUiICBzdG9wLWNvbG9yPSIjNTYwMDcyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNDUlIiAgc3RvcC1jb2xvcj0iIzgwMDA4MCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY3JSIgIHN0b3AtY29sb3I9IiNBOTAwNzIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NCUiICBzdG9wLWNvbG9yPSIjRDUwMDQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGMDAwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDwhLS0gSVNPVElQTyAtLT4KICA8cmVjdAogICAgeD0iNDgiCiAgICB5PSI1NiIKICAgIHdpZHRoPSIxMDAiCiAgICBoZWlnaHQ9IjEwMCIKICAgIGZpbGw9Im5vbmUiCiAgICBzdHJva2U9InVybCgjaWFHcmFkaWVudCkiCiAgICBzdHJva2Utd2lkdGg9IjE1IgogICAgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIKICAvPgoKICA8IS0tIEJMT1FVRSBUSVBPR1LDgUZJQ08gLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTgwIDApIj4KCiAgICA8IS0tIE5vbWJyZSBwcmluY2lwYWwgLS0+CiAgICA8dGV4dAogICAgICB4PSIwIgogICAgICB5PSIxMTYiCiAgICAgIGZpbGw9IiMwMDAwMDAiCiAgICAgIGZvbnQtZmFtaWx5PSInRE0gU2VyaWYgRGlzcGxheScsICdUaW1lcyBOZXcgUm9tYW4nLCBHZW9yZ2lhLCBzZXJpZiIKICAgICAgZm9udC1zaXplPSI3NiIKICAgICAgZm9udC13ZWlnaHQ9IjQwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiCiAgICA+CiAgICAgIElBIEFQTElDQURBCiAgICA8L3RleHQ+CgogICAgPCEtLSBGaXJtYSBpbnN0aXR1Y2lvbmFsIC0tPgogICAgPHRleHQKICAgICAgeD0iMiIKICAgICAgeT0iMTU0IgogICAgICBmaWxsPSIjMDAwMDAwIgogICAgICBmb250LWZhbWlseT0iJ0ludGVyJywgQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIKICAgICAgZm9udC1zaXplPSIyNyIKICAgICAgZm9udC13ZWlnaHQ9IjYwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9IjciCiAgICA+CiAgICAgIFpFR0VMCiAgICA8L3RleHQ+CgogIDwvZz4KCjwvc3ZnPgo=" alt="IA Aplicada — Zegel">
+        <div><b>INTELIGENCIA ARTIFICIAL GENERATIVA APLICADA</b><span>Docente: Ingeniero César Uribe</span></div>
+        <div><a href="mailto:fcuribe@zegel.pe">fcuribe@zegel.pe</a><a href="https://www.linkedin.com/in/uribealvites/">LinkedIn</a></div>
+      </footer>
+    </section>
+
+  </div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Navegación por capítulos ---------- */
+  var chapters = ["inicio", "problema", "peticion", "proceso", "verificacion", "mapa", "practica"];
+
+  document.querySelectorAll("[data-goto]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var target = document.getElementById(el.dataset.goto);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  function setActive(id) {
+    document.querySelectorAll(".rail-link").forEach(function (link) {
+      link.classList.toggle("active", link.dataset.rail === id);
+    });
+  }
+
+  /* Capitulo activo segun la posicion de scroll (linea de referencia al 28% del viewport) */
+  function updateActive() {
+    var line = window.innerHeight * 0.28;
+    var current = chapters[0];
+    chapters.forEach(function (id) {
+      var element = document.getElementById(id);
+      if (element && element.getBoundingClientRect().top <= line) current = id;
+    });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      current = chapters[chapters.length - 1];
+    }
+    setActive(current);
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { ticking = false; updateActive(); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  updateActive();
+
+  /* ---------- LAB 01 · Constructor de prompt por capas ---------- */
+  var layerButtons = document.querySelectorAll("[data-layer]");
+  function renderPrompt(level) {
+    layerButtons.forEach(function (button) {
+      var index = Number(button.dataset.layer);
+      var on = level >= index;
+      button.classList.toggle("selected", on);
+      button.querySelector("i").textContent = on ? "●" : "+";
+    });
+    [1, 2, 3].forEach(function (index) {
+      document.querySelector('[data-frag="' + index + '"]').hidden = level < index;
+      document.querySelector('[data-tag="' + index + '"]').hidden = level < index;
+    });
+  }
+  layerButtons.forEach(function (button) {
+    button.addEventListener("click", function () { renderPrompt(Number(button.dataset.layer)); });
+  });
+  renderPrompt(0);
+
+  /* ---------- Caja del proceso ---------- */
+  var processBox = document.querySelector('[data-io="toggle"]');
+  var processLabel = document.querySelector("[data-process-label]");
+  var processReveal = document.querySelector("[data-process-reveal]");
+  var processOpen = false;
+  function renderProcess() {
+    processBox.classList.toggle("open", processOpen);
+    processLabel.textContent = processOpen ? "Modelo + contexto + herramientas" : "ABRIR LA CAJA";
+    processReveal.hidden = !processOpen;
+  }
+  processBox.addEventListener("click", function () { processOpen = !processOpen; renderProcess(); });
+  document.querySelector('[data-io="close"]').addEventListener("click", function () { processOpen = false; renderProcess(); });
+  renderProcess();
+
+  /* ---------- LAB 02 · Costo del error ---------- */
+  var riskBadges = ["BAJO RIESGO", "RIESGO INTERMEDIO", "ALTO RIESGO"];
+  var riskTitles = ["Recomendar canciones", "Resumir un informe", "Orientar una obligación tributaria"];
+  var riskTexts = [
+    "El error se corrige o se descarta. Basta una revisión ligera y criterio personal.",
+    "Un error puede afectar una reunión o una decisión. Revisa datos, omisiones y sentido general.",
+    "Las consecuencias pueden ser serias. Exige fuente primaria, vigencia, alcance y revisión profesional."
+  ];
+  var riskLevels = ["REVISIÓN LIGERA", "REVISIÓN CUIDADOSA", "VERIFICACIÓN EXIGENTE"];
+  var riskInput = document.querySelector("[data-risk-input]");
+  var riskResult = document.querySelector("[data-risk-result]");
+  function renderRisk(value) {
+    riskResult.className = "risk-result risk-" + value;
+    riskResult.querySelector("[data-risk-badge]").textContent = riskBadges[value];
+    riskResult.querySelector("[data-risk-title]").textContent = riskTitles[value];
+    riskResult.querySelector("[data-risk-text]").textContent = riskTexts[value];
+    riskResult.querySelector("[data-risk-level]").textContent = riskLevels[value];
+  }
+  riskInput.addEventListener("input", function () { renderRisk(Number(riskInput.value)); });
+  renderRisk(Number(riskInput.value));
+
+  /* ---------- ATLAS 01 · Taxonomía ---------- */
+  var taxKinds = ["CAMPO", "TECNOLOGÍA", "MODELO", "SISTEMA", "PRODUCTO", "INTERFAZ"];
+  var taxShorts = ["IA", "ML", "LLM", "TOOLS", "APP", "TÚ"];
+  var taxDescs = [
+    "Campo amplio: visión, lenguaje, planificación, robótica y más.",
+    "Métodos que aprenden patrones a partir de datos.",
+    "Piezas tecnológicas capaces de generar y trabajar con modalidades.",
+    "Capacidades coordinadas para resolver una tarea.",
+    "Experiencia completa creada por una organización.",
+    "El punto visible donde comienza la interacción."
+  ];
+  var taxButtons = document.querySelectorAll("[data-tax]");
+  function renderTaxonomy(layer) {
+    taxButtons.forEach(function (button) {
+      button.classList.toggle("active", Number(button.dataset.tax) === layer);
+    });
+    document.querySelectorAll("[data-ring]").forEach(function (ring) {
+      ring.classList.toggle("lit", layer >= Number(ring.dataset.ring));
+    });
+    document.querySelector("[data-tax-kind]").textContent = taxKinds[layer];
+    document.querySelector("[data-tax-short]").textContent = taxShorts[layer];
+    document.querySelector("[data-tax-desc]").textContent = taxDescs[layer];
+  }
+  taxButtons.forEach(function (button) {
+    button.addEventListener("click", function () { renderTaxonomy(Number(button.dataset.tax)); });
+  });
+  renderTaxonomy(0);
+})();
+</script>
+</body>
+</html>

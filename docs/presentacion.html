@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inteligencia Artificial Aplicada | Edicion 2026</title>
+<meta name="description" content="Curso profesional de IA Aplicada: 8 sesiones de 4 horas, dos proyectos evaluados al 50 % y una hoja de ruta propia.">
+<meta name="author" content="Ingeniero Cesar Uribe">
+<meta property="og:title" content="Inteligencia Artificial Aplicada | Edicion 2026">
+<meta property="og:description" content="Curso profesional de IA Aplicada: 8 sesiones de 4 horas, dos proyectos evaluados al 50 % y una hoja de ruta propia.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyIDE5LjI3MjdDMjIgMjAuNzc5IDIwLjc3OSAyMiAxOS4yNzI3IDIySDE0LjcyNzNDMTMuMjIxIDIyIDEyIDIwLjc3OSAxMiAxOS4yNzI3VjEySDE5LjI3MjdDMjAuNzc5IDEyIDIyIDEzLjIyMSAyMiAxNC43MjczVjE5LjI3MjdaIiBmaWxsPSIjNjhDNEZGIi8+CjxwYXRoIGQ9Ik0yMCAyQzIxLjEwNDYgMiAyMiAyLjg5NTQzIDIyIDRWN0MyMiA4LjEwNDU3IDIxLjEwNDYgOSAyMCA5SDE3QzE1Ljg5NTQgOSAxNSA4LjEwNDU3IDE1IDdWNEMxNSAyLjg5NTQzIDE1Ljg5NTQgMiAxNyAySDIwWiIgZmlsbD0iIzBDNzlEOCIvPgo8cGF0aCBkPSJNNyAxNUM4LjEwNDU3IDE1IDkgMTUuODk1NCA5IDE3VjIwQzkgMjEuMTA0NiA4LjEwNDU3IDIyIDcgMjJINEMyLjg5NTQzIDIyIDIgMjEuMTA0NiAyIDIwVjE3QzIgMTUuODk1NCAyLjg5NTQzIDE1IDQgMTVIN1oiIGZpbGw9IiMwQzc5RDgiLz4KPHBhdGggZD0iTTEyIDEySDQuNzI3MjdDMy4yMjEwNCAxMiAyIDEwLjc3OSAyIDkuMjcyNzNWNC43MjcyN0MyIDMuMjIxMDQgMy4yMjEwNCAyIDQuNzI3MjcgMkg5LjI3MjczQzEwLjc3OSAyIDEyIDMuMjIxMDQgMTIgNC43MjcyN1YxMloiIGZpbGw9IiMyRTlFRkYiLz4KPC9zdmc+Cg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---- Reset base (equivalente a Tailwind Preflight) ---- */
+*,::before,::after{box-sizing:border-box;border:0 solid;margin:0;padding:0}
+html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4}
+body{line-height:inherit}
+hr{height:0;color:inherit;border-top-width:1px}
+abbr:where([title]){text-decoration:underline dotted}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+a{color:inherit;text-decoration:inherit}
+b,strong{font-weight:bolder}
+code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1em}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-.25em}sup{top:-.5em}
+table{text-indent:0;border-color:inherit;border-collapse:collapse}
+button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+button,select{text-transform:none}
+button,[type='button'],[type='reset'],[type='submit']{-webkit-appearance:button;background-color:transparent;background-image:none}
+:-moz-focusring{outline:auto}
+progress{vertical-align:baseline}
+summary{display:list-item}
+blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}
+fieldset{margin:0;padding:0}
+legend{padding:0}
+ol,ul,menu{list-style:none;margin:0;padding:0}
+textarea{resize:vertical}
+input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
+button,[role="button"]{cursor:pointer}
+:disabled{cursor:default}
+img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}
+img,video{max-width:100%;height:auto}
+[hidden]{display:none!important}
+
+
+/* ---- Estilos del proyecto ---- */
+:root { --paper:#fff; --ink:#09080a; --muted:#666169; --line:#ded9df; --violet:#2a0048; --purple:#800080; --magenta:#d50048; --red:#ff0000; --gradient:linear-gradient(115deg,#2a0048 0%,#800080 45%,#d50048 76%,#ff0000 100%); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:"Inter",sans-serif; }
+button { font:inherit; }
+.topbar { position:fixed; inset:0 0 auto 0; height:82px; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:0 42px 0 36px; background:rgba(255,255,255,.94); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+.brand { border:0; background:transparent; cursor:pointer; padding:0; }.brand img { display:block; width:220px; height:auto; }
+.course-meta { display:flex; gap:40px; font-size:10px; font-weight:700; letter-spacing:.2em; }
+.chapter-rail { position:fixed; z-index:40; top:82px; bottom:0; left:0; width:190px; padding:40px 20px 30px 32px; background:#fff; border-right:1px solid var(--line); }
+.rail-title { margin-bottom:28px; font-size:9px; font-weight:700; letter-spacing:.22em; color:var(--muted); }
+.rail-link { width:100%; display:grid; grid-template-columns:25px 1fr; align-items:center; gap:8px; border:0; background:transparent; padding:11px 0; text-align:left; color:#8b868c; cursor:pointer; }
+.rail-link span { font-size:9px; letter-spacing:.08em; }.rail-link b { font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:600; }
+.rail-link::after { content:""; grid-column:1/3; width:0; height:1px; background:var(--gradient); transition:width .35s ease; }.rail-link.active { color:var(--ink); }.rail-link.active::after { width:100%; }
+.page-shell { margin-left:190px; padding-top:82px; }.chapter-section { min-height:100vh; padding:42px 5.5vw 52px; scroll-margin-top:82px; }
+.section-label,.eyebrow { display:flex; justify-content:space-between; font-size:10px; font-weight:700; letter-spacing:.2em; }.eyebrow { padding-bottom:18px; border-bottom:1px solid var(--ink); }.eyebrow span:first-child,.accent { color:var(--magenta); }
+.hero { display:flex; flex-direction:column; }.hero-grid { flex:1; display:grid; grid-template-columns:1.15fr .85fr; align-items:center; gap:5vw; padding:5vh 0 4vh; }.kicker { margin:0 0 18px; font-size:11px; font-weight:700; letter-spacing:.18em; }
+h1,h2,h3 { font-family:"DM Serif Display",Georgia,serif; font-weight:400; }h1 { margin:0; font-size:clamp(72px,8vw,142px); line-height:.82; letter-spacing:-.05em; }h1 em { color:transparent; background:var(--gradient); background-clip:text; -webkit-background-clip:text; font-weight:400; }
+.hero-lead { max-width:660px; margin:34px 0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(20px,2vw,31px); line-height:1.25; }.primary-button { display:inline-flex; gap:28px; align-items:center; border:0; border-radius:999px; padding:14px 20px; color:white; background:var(--gradient); font-size:10px; font-weight:700; letter-spacing:.14em; cursor:pointer; }.primary-button span { font-size:16px; }
+.hero-figure { position:relative; aspect-ratio:1; max-width:520px; margin-inline:auto; }.orbit { position:absolute; border:1px solid rgba(86,0,114,.28); border-radius:50%; animation:breathe 5s ease-in-out infinite; }.orbit-one { inset:10%; }.orbit-two { inset:24%; border-style:dashed; animation-delay:.5s; }.orbit-three { inset:37%; border-color:rgba(213,0,72,.6); animation-delay:1s; }.core { position:absolute; inset:43%; display:grid; place-items:center; color:white; border-radius:50%; background:var(--gradient); font-size:8px; font-weight:700; letter-spacing:.12em; }.node { position:absolute; padding:8px 11px; background:white; border:1px solid var(--ink); font-size:9px; font-weight:700; letter-spacing:.12em; }.node::before { content:""; display:inline-block; width:6px; height:6px; margin-right:8px; border-radius:50%; background:var(--magenta); }.node-a { left:3%; top:27%; }.node-b { right:0; top:44%; }.node-c { left:18%; bottom:6%; }.figure-index { position:absolute; right:5%; bottom:4%; font-size:9px; letter-spacing:.2em; }
+.hero-footer { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); padding-top:18px; font-size:9px; font-weight:700; letter-spacing:.18em; }.hero-footer span:not(:first-child) { text-align:center; }
+.opening-chapter { border-top:1px solid var(--line); padding-top:52px; }.section-label { color:var(--muted); margin-bottom:12vh; }.opening-grid { display:grid; grid-template-columns:1fr 1fr; gap:8vw; align-items:end; }.opening-grid h2,.placeholder-chapter h2 { margin:0; font-size:clamp(52px,6vw,104px); line-height:.92; letter-spacing:-.035em; }.opening-question { border-left:2px solid var(--purple); padding:20px 0 18px 32px; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(22px,2.2vw,36px); line-height:1.25; }.opening-question p { margin:0 0 16px; color:var(--muted); }.opening-question strong { font-weight:400; color:var(--magenta); }
+.case-strip { display:grid; grid-template-columns:.28fr 1fr .9fr; gap:42px; margin-top:12vh; padding:30px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.case-number,.case-caption { font-size:9px; font-weight:700; letter-spacing:.18em; }.case-caption { color:var(--magenta); }.case-strip h3 { margin:8px 0; font-size:33px; }.case-strip p { max-width:620px; line-height:1.6; }.money-path { display:flex; align-items:center; justify-content:center; gap:10px; font-size:8px; font-weight:700; letter-spacing:.12em; }.money-path span { padding:12px 10px; border:1px solid var(--line); }.money-path .split { color:white; border:0; background:var(--gradient); }
+.placeholder-chapter { min-height:68vh; display:flex; flex-direction:column; justify-content:space-between; border-top:1px solid var(--line); }.placeholder-chapter h2 { max-width:950px; }
+.lesson-section { border-top:1px solid var(--line); padding-top:52px; overflow:hidden; }
+.lesson-heading { margin-bottom:9vh; }.lesson-heading.two-column { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:8vw; }.lesson-heading h2,.verification-hero h2,.final-hero h2 { max-width:1000px; margin:0; font-size:clamp(58px,7.5vw,126px); line-height:.88; letter-spacing:-.045em; }.intro-copy { max-width:650px; margin:28px 0 0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(21px,2vw,32px); line-height:1.35; }.big-note { padding:32px; border-left:1px solid var(--purple); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(24px,2.3vw,38px); line-height:1.25; }.big-note p { margin:0 0 12px; color:var(--muted); }.big-note strong { font-weight:400; color:var(--magenta); }
+.micro-label { font-size:9px; font-weight:700; letter-spacing:.2em; }.prompt-lab { display:grid; grid-template-columns:.72fr 1.28fr; min-height:480px; border:1px solid var(--ink); }.lab-controls { padding:28px; border-right:1px solid var(--ink); }.lab-controls>.micro-label { display:block; margin:0 0 34px; }.layer-button { width:100%; display:grid; grid-template-columns:34px 1fr 20px; align-items:center; gap:10px; padding:19px 0; border:0; border-top:1px solid var(--line); background:transparent; color:var(--muted); text-align:left; cursor:pointer; }.layer-button span { font-size:9px; }.layer-button b { font-size:12px; letter-spacing:.05em; text-transform:uppercase; }.layer-button i { font-style:normal; text-align:right; }.layer-button.selected { color:var(--purple); }.layer-button:last-child { border-bottom:1px solid var(--line); }
+.prompt-output { position:relative; display:flex; flex-direction:column; justify-content:center; padding:70px clamp(28px,5vw,86px); background:linear-gradient(140deg,#fbf7fd,#fff 62%); }.window-dots { position:absolute; left:25px; top:24px; display:flex; gap:6px; }.window-dots i { width:7px; height:7px; border-radius:50%; background:var(--line); }.window-dots i:nth-child(2){background:#800080}.window-dots i:nth-child(3){background:#d50048}.prompt-text { margin:0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(24px,2.4vw,40px); line-height:1.35; }.prompt-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:35px; }.prompt-tags span { padding:7px 9px; color:white; background:var(--gradient); font-size:8px; font-weight:700; letter-spacing:.15em; }
+.principle-band { display:grid; grid-template-columns:.25fr 1fr 1fr; gap:30px; align-items:baseline; margin:9vh 0 5vh; padding:28px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.principle-band p,.principle-band strong { margin:0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(21px,2vw,32px); font-weight:400; }.principle-band strong { color:var(--magenta); }
+.strategy-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); }.strategy-grid article { min-height:300px; padding:28px; display:flex; flex-direction:column; border-right:1px solid var(--line); }.strategy-grid article:last-child { border:0; }.strategy-grid article>span,.strategy-grid small { font-size:9px; font-weight:700; letter-spacing:.18em; }.strategy-grid article>span { color:var(--magenta); }.strategy-grid h3 { margin:50px 0 14px; font-size:35px; }.strategy-grid p { color:var(--muted); line-height:1.65; }.strategy-grid small { margin-top:auto; }
+.cost-equation { display:grid; grid-template-columns:1fr 50px 1fr; gap:20px; align-items:center; margin:8vh 0; padding:42px; color:white; background:var(--gradient); }.cost-equation div { display:flex; flex-direction:column; gap:6px; }.cost-equation span { font-size:9px; letter-spacing:.2em; }.cost-equation b { font-family:"DM Serif Display",Georgia,serif; font-size:34px; font-weight:400; }.cost-equation>i { font-size:32px; font-style:normal; text-align:center; }.cost-equation>p { grid-column:1/-1; margin:18px 0 0; padding-top:20px; border-top:1px solid rgba(255,255,255,.4); font-size:14px; }
+.class-pause { margin:11vh 0 4vh; padding:44px; border:1px solid var(--ink); background:radial-gradient(circle at 90% 15%,rgba(213,0,72,.12),transparent 32%); }.class-pause>span { font-size:9px; font-weight:700; letter-spacing:.2em; color:var(--magenta); }.class-pause h3 { margin:60px 0 12px; font-size:clamp(36px,4vw,66px); }.class-pause p { max-width:800px; font-size:20px; line-height:1.5; }
+.alternate { background:#fcfbfc; }.iteration-loop { display:grid; grid-template-columns:1fr 55px 1fr 55px 1fr 55px; align-items:center; margin:6vh 0 10vh; }.iteration-loop>div { min-height:190px; display:flex; flex-direction:column; justify-content:center; padding:26px; border:1px solid var(--ink); background:#fff; }.iteration-loop>i { font-size:30px; font-style:normal; text-align:center; color:var(--magenta); }.iteration-loop span { font-size:9px; color:var(--magenta); }.iteration-loop b { margin:18px 0 8px; font-family:"DM Serif Display",Georgia,serif; font-size:38px; font-weight:400; }.iteration-loop small { color:var(--muted); }
+.transform-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.transform-grid article { min-height:260px; padding:27px; border-right:1px solid var(--line); }.transform-grid article:last-child { border:0; }.transform-grid span { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--purple); }.transform-grid p { margin-top:62px; font-family:"DM Serif Display",Georgia,serif; font-size:21px; line-height:1.35; }
+.workspace-rule { display:grid; grid-template-columns:.68fr 1.32fr; gap:7vw; align-items:center; margin:12vh 0; }.folder-visual { min-height:280px; display:flex; flex-direction:column; justify-content:flex-end; padding:35px; color:white; background:var(--gradient); clip-path:polygon(0 12%,32% 12%,38% 0,100% 0,100% 100%,0 100%); }.folder-visual span,.folder-visual i { font-size:9px; font-style:normal; letter-spacing:.2em; }.folder-visual b { margin:14px 0 55px; font-family:"DM Serif Display",Georgia,serif; font-size:45px; font-weight:400; }.workspace-rule h3 { margin:15px 0; font-size:clamp(37px,4vw,65px); }.workspace-rule p:last-child { max-width:680px; color:var(--muted); font-size:18px; line-height:1.6; }
+.io-system { display:grid; grid-template-columns:1fr 60px 1.2fr 60px 1fr; align-items:center; }.io-system>i { text-align:center; font-size:26px; font-style:normal; color:var(--magenta); }.io-box { min-height:160px; display:flex; flex-direction:column; justify-content:center; gap:16px; padding:25px; border:1px solid var(--ink); background:#fff; text-align:left; }.io-box span { font-size:9px; font-weight:700; letter-spacing:.2em; color:var(--purple); }.io-box b { font-family:"DM Serif Display",Georgia,serif; font-size:28px; font-weight:400; }.process-box { cursor:pointer; color:white; background:var(--gradient); }.process-box span { color:white; }.process-box.open { box-shadow:0 0 0 8px rgba(128,0,128,.08); }.process-reveal { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; padding:34px; border:1px solid var(--line); border-top:0; background:#fff; }.process-reveal span { padding:9px 12px; border:1px solid var(--purple); color:var(--purple); font-size:9px; font-weight:700; letter-spacing:.15em; }
+.verification-hero { display:grid; grid-template-columns:.28fr 1fr .6fr; align-items:end; gap:38px; margin-bottom:11vh; }.verification-hero h2 { grid-column:2; }.verification-hero>p { grid-column:3; max-width:420px; margin:0; font-size:18px; line-height:1.6; }.risk-lab { display:grid; grid-template-columns:.8fr 1.2fr; min-height:390px; border:1px solid var(--ink); }.risk-control { display:flex; flex-direction:column; justify-content:center; padding:40px; border-right:1px solid var(--ink); }.risk-control input { width:100%; margin:70px 0 16px; accent-color:var(--magenta); }.risk-labels { display:flex; justify-content:space-between; font-size:8px; font-weight:700; letter-spacing:.15em; }.risk-result { display:flex; flex-direction:column; justify-content:center; padding:clamp(35px,6vw,90px); transition:background .35s,color .35s; }.risk-result>span,.risk-result>b { font-size:9px; letter-spacing:.2em; }.risk-result h3 { margin:25px 0 12px; font-size:clamp(36px,4vw,62px); }.risk-result p { max-width:680px; line-height:1.65; }.risk-result>b { margin-top:30px; }.risk-0 { background:#fff; }.risk-1 { background:#f7eef8; }.risk-2 { color:white; background:var(--gradient); }
+.rule-monument { display:grid; grid-template-columns:.28fr 1fr 50px 1fr; align-items:center; gap:25px; margin:8vh 0; padding:33px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }.rule-monument span { font-size:9px; font-weight:700; letter-spacing:.2em; }.rule-monument p { margin:0; font-family:"DM Serif Display",Georgia,serif; font-size:clamp(25px,2.7vw,44px); }.rule-monument i { font-size:27px; font-style:normal; color:var(--magenta); }
+.certainty-grid { display:grid; grid-template-columns:1fr 1fr; gap:7vw; align-items:center; margin:11vh 0; }.false-equality { display:flex; flex-direction:column; align-items:center; gap:24px; padding:50px 30px; border:1px solid var(--ink); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(27px,3vw,48px); }.false-equality i { font-size:70px; font-style:normal; color:var(--magenta); }.certainty-grid>div:last-child { font-size:18px; line-height:1.65; }.certainty-grid ul { padding-left:20px; color:var(--muted); }
+.evidence-flow { display:grid; grid-template-columns:1fr 50px 1fr 50px 1fr; align-items:center; }.evidence-flow>div { min-height:220px; padding:28px; border:1px solid var(--line); }.evidence-flow>i { text-align:center; font-style:normal; color:var(--magenta); }.evidence-flow span { color:var(--magenta); font-size:9px; }.evidence-flow b { display:block; margin:45px 0 10px; letter-spacing:.15em; }.evidence-flow p { color:var(--muted); line-height:1.5; }.source-workflow { display:grid; grid-template-columns:1fr 40px 1fr 40px 1fr; gap:8px; align-items:center; margin-top:10vh; padding:38px; color:white; background:var(--violet); }.source-workflow div { display:flex; flex-direction:column; gap:14px; }.source-workflow span { font-size:8px; letter-spacing:.18em; color:#f397bc; }.source-workflow b { font-family:"DM Serif Display",Georgia,serif; font-size:23px; font-weight:400; }.source-workflow>i { text-align:center; font-size:25px; font-style:normal; }
+.token-diagram { display:grid; grid-template-columns:1fr 40px 1.2fr 40px 1fr 40px 1fr; align-items:stretch; margin:8vh 0 18px; }.token-diagram>div { min-height:180px; display:flex; flex-direction:column; justify-content:center; gap:25px; padding:24px; border:1px solid var(--line); }.token-diagram>i { align-self:center; text-align:center; font-style:normal; color:var(--magenta); }.token-diagram span { font-size:8px; font-weight:700; letter-spacing:.18em; }.token-diagram b { font-family:"DM Serif Display",Georgia,serif; font-size:24px; font-weight:400; }.token-box b { display:flex; flex-wrap:wrap; gap:4px; }.token-box em { padding:4px; font-style:normal; background:#f1e7f3; }.model-core { color:white; background:var(--gradient); }.diagram-caption { margin:0; color:var(--muted); font-size:10px; letter-spacing:.05em; }
+.dual-principles { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:11vh 0; }.dual-principles article { min-height:350px; padding:38px; border:1px solid var(--ink); }.dual-principles span { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--magenta); }.dual-principles h3 { margin:72px 0 18px; font-size:clamp(30px,3vw,48px); }.dual-principles p { color:var(--muted); line-height:1.6; }
+.system-stack { display:grid; grid-template-columns:.5fr 1.5fr; gap:5vw; margin:12vh 0; }.stack-label span { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--magenta); }.stack-label h3 { font-size:50px; }.stack-cards { display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line); }.stack-cards article { min-height:230px; padding:26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }.stack-cards article:nth-child(even) { border-right:0; }.stack-cards article:nth-child(n+3) { border-bottom:0; }.stack-cards span { font-size:9px; color:var(--magenta); }.stack-cards b { display:block; margin:38px 0 12px; letter-spacing:.15em; }.stack-cards p { color:var(--muted); line-height:1.5; }
+.limits-grid { display:grid; grid-template-columns:repeat(3,1fr); color:white; background:var(--gradient); }.limits-grid article { min-height:330px; padding:32px; border-right:1px solid rgba(255,255,255,.32); }.limits-grid article:last-child { border:0; }.limits-grid span { font-size:8px; letter-spacing:.18em; }.limits-grid h3 { margin:72px 0 16px; font-size:46px; }.limits-grid p { line-height:1.6; }
+.taxonomy-lab { display:grid; grid-template-columns:.75fr 1.25fr; margin:12vh 0 7vh; border:1px solid var(--ink); }.taxonomy-nav { padding:28px; border-right:1px solid var(--ink); }.taxonomy-nav>.micro-label { margin-bottom:26px; }.taxonomy-button { width:100%; display:grid; grid-template-columns:34px .7fr 1.3fr; align-items:center; gap:10px; padding:15px 0; border:0; border-bottom:1px solid var(--line); background:transparent; color:var(--muted); text-align:left; cursor:pointer; }.taxonomy-button span,.taxonomy-button small { font-size:8px; }.taxonomy-button b { font-size:11px; letter-spacing:.08em; text-transform:uppercase; }.taxonomy-button.active { color:var(--magenta); }.taxonomy-visual { position:relative; min-height:620px; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; background:linear-gradient(145deg,#fff,#fbf5fb); }.tax-ring { position:absolute; border:1px solid #ded4e0; border-radius:50%; transition:.4s; }.ring-0{inset:6%}.ring-1{inset:13%}.ring-2{inset:20%}.ring-3{inset:27%}.ring-4{inset:34%}.ring-5{inset:41%}.tax-ring.lit { border-color:var(--magenta); box-shadow:0 0 18px rgba(213,0,72,.08); }.tax-center { z-index:1; width:112px; height:112px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; border-radius:50%; background:var(--gradient); }.tax-center span { font-size:7px; letter-spacing:.15em; }.tax-center b { margin-top:8px; font-family:"DM Serif Display",Georgia,serif; font-size:26px; }.taxonomy-visual>p { position:absolute; bottom:34px; max-width:430px; padding:0 24px; text-align:center; color:var(--muted); line-height:1.5; }.selection-question { display:flex; flex-direction:column; gap:18px; padding:46px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(30px,3.6vw,58px); }.selection-question del { color:var(--muted); }.selection-question strong { color:var(--magenta); font-weight:400; }
+.final-section { padding-bottom:0; }.final-hero { margin-bottom:10vh; }.master-sequence { display:grid; grid-template-columns:1fr 45px 1fr 45px 1fr; align-items:center; }.master-sequence article { min-height:300px; padding:32px; border:1px solid var(--ink); }.master-sequence>i { font-size:28px; font-style:normal; text-align:center; color:var(--magenta); }.master-sequence span { font-size:9px; color:var(--magenta); }.master-sequence h3 { margin:65px 0 12px; font-size:48px; }.master-sequence p { color:var(--muted); line-height:1.55; }
+.practice-card { display:grid; grid-template-columns:1fr 1fr; gap:6vw; margin:12vh 0; padding:50px; color:white; background:var(--gradient); }.practice-card span { font-size:9px; letter-spacing:.18em; }.practice-card h3 { margin:70px 0 0; font-size:clamp(45px,5vw,78px); }.practice-card ol { list-style:none; margin:0; padding:0; }.practice-card li { display:grid; grid-template-columns:45px 1fr; gap:15px; padding:20px 0; border-bottom:1px solid rgba(255,255,255,.35); line-height:1.5; }.practice-card li span { color:#f9b7cf; }
+.closing-question { margin:12vh 0; text-align:center; }.closing-question span { font-size:9px; font-weight:700; letter-spacing:.2em; color:var(--magenta); }.closing-question h3 { max-width:1100px; margin:50px auto 18px; font-size:clamp(48px,6vw,94px); line-height:.95; }.closing-question p { color:var(--muted); font-size:18px; }.closing-statement { display:grid; grid-template-columns:.35fr 1fr; gap:18px 50px; align-items:baseline; padding:45px 0; border-top:1px solid var(--ink); }.closing-statement p { margin:0; font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }.closing-statement del,.closing-statement strong { font-family:"DM Serif Display",Georgia,serif; font-size:clamp(27px,3vw,48px); font-weight:400; }.closing-statement del { color:var(--muted); }.closing-statement strong { color:var(--magenta); }.site-footer { display:grid; grid-template-columns:1fr 1fr .6fr; gap:30px; align-items:center; margin:10vh -5.5vw 0; padding:45px 5.5vw; border-top:1px solid var(--line); }.site-footer img { width:250px; }.site-footer>div { display:flex; flex-direction:column; gap:9px; font-size:10px; letter-spacing:.08em; }.site-footer a { color:var(--ink); text-decoration:none; }
+@keyframes breathe { 0%,100% { transform:scale(1); opacity:.7; } 50% { transform:scale(1.025); opacity:1; } }@media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; animation:none!important; } }
+@media (max-width:900px) { .topbar { height:68px; padding:0 18px; }.brand img { width:170px; }.course-meta span:first-child { display:none; }.chapter-rail { top:auto; bottom:0; width:100%; height:62px; display:flex; padding:0 10px; border:0; border-top:1px solid var(--line); overflow-x:auto; }.rail-title,.rail-link span { display:none; }.rail-link { display:block; min-width:86px; padding:14px 8px 8px; text-align:center; }.rail-link b { font-size:9px; }.rail-link::after { display:block; margin-top:10px; }.page-shell { margin-left:0; padding-top:68px; padding-bottom:62px; }.chapter-section { padding:28px 22px 44px; scroll-margin-top:68px; }.hero-grid,.opening-grid,.lesson-heading.two-column,.prompt-lab,.workspace-rule,.risk-lab,.verification-hero,.certainty-grid,.system-stack,.taxonomy-lab,.practice-card { grid-template-columns:1fr; }.hero-grid { padding-top:7vh; }.hero-figure { width:min(78vw,440px); }.hero-footer { grid-template-columns:repeat(2,1fr); gap:12px; }.case-strip { grid-template-columns:1fr; gap:12px; }.money-path { justify-content:flex-start; flex-wrap:wrap; }.section-label { margin-bottom:8vh; }.lab-controls,.risk-control,.taxonomy-nav { border-right:0; border-bottom:1px solid var(--ink); }.principle-band { grid-template-columns:1fr; }.strategy-grid,.transform-grid,.limits-grid { grid-template-columns:1fr; }.strategy-grid article,.transform-grid article,.limits-grid article { border-right:0; border-bottom:1px solid var(--line); }.iteration-loop,.io-system,.evidence-flow,.token-diagram,.master-sequence { grid-template-columns:1fr; gap:10px; }.iteration-loop>i,.io-system>i,.evidence-flow>i,.token-diagram>i,.master-sequence>i { transform:rotate(90deg); }.cost-equation { grid-template-columns:1fr; }.cost-equation>p { grid-column:1; }.rule-monument { grid-template-columns:1fr; }.verification-hero h2,.verification-hero>p { grid-column:1; }.dual-principles,.stack-cards { grid-template-columns:1fr; }.stack-cards article { border-right:0!important; border-bottom:1px solid var(--line)!important; }.taxonomy-button { grid-template-columns:30px .7fr 1.3fr; }.taxonomy-visual { min-height:500px; }.master-sequence article { min-height:230px; }.closing-statement { grid-template-columns:1fr; }.site-footer { grid-template-columns:1fr; margin-left:-22px; margin-right:-22px; padding-left:22px; padding-right:22px; } }
+
+
+/* ---- Ajuste de conversion ---- */
+/* .hero-figure quedaba en 0x0: al ser item de grid con margin-inline:auto no se
+   estira, y todos sus hijos son absolutos. Se fija el ancho para que el diagrama
+   FIG. 01 (orbitas + nodos) se vea como indica el diseno. */
+.hero-figure { width:100%; }
+
+/* ---- Extensiones para conversion de documentos ---- */
+/* Bloques que no existian en el sitio original y que hacen falta cuando la
+   fuente es un documento: texto corrido largo, tablas y notas al pie. */
+.cuerpo-texto { max-width:760px; margin:0 0 8vh; color:#2b262e; font-size:18px; line-height:1.75; }
+.cuerpo-texto>*+* { margin-top:20px; }
+.cuerpo-texto h3 { margin:46px 0 -4px; font-size:31px; color:var(--ink); }
+.cuerpo-texto ul,.cuerpo-texto ol { padding-left:22px; }
+.cuerpo-texto li { margin-top:10px; list-style:disc; }
+.cuerpo-texto ol li { list-style:decimal; }
+.cuerpo-texto strong { color:var(--magenta); font-weight:600; }
+.cuerpo-texto a { color:var(--purple); text-decoration:underline; text-underline-offset:3px; }
+.tabla-editorial { width:100%; margin:6vh 0; border-collapse:collapse; font-size:14px; }
+.tabla-editorial caption { margin-bottom:12px; color:var(--muted); font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; text-align:left; }
+.tabla-editorial th,.tabla-editorial td { padding:14px 16px; border:1px solid var(--line); text-align:left; vertical-align:top; line-height:1.55; }
+.tabla-editorial thead tr { background:var(--gradient); }
+.tabla-editorial thead th { color:#fff; background:transparent; border-color:transparent; font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+.tabla-editorial tbody tr:nth-child(even) { background:#faf7fb; }
+.nota-pie { margin:4vh 0; padding-left:20px; border-left:2px solid var(--purple); color:var(--muted); font-size:15px; line-height:1.6; }
+@media (max-width:900px) { .tabla-editorial { display:block; overflow-x:auto; white-space:nowrap; }.cuerpo-texto { font-size:17px; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="topbar">
+    <button class="brand" data-goto="inicio" aria-label="Volver al inicio">
+      <img src="data:image/svg+xml;base64,PHN2ZwogIHdpZHRoPSI5ODAiCiAgaGVpZ2h0PSIyMjAiCiAgdmlld0JveD0iMCAwIDk4MCAyMjAiCiAgZmlsbD0ibm9uZSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgcm9sZT0iaW1nIgogIGFyaWEtbGFiZWw9IklBIEFQTElDQURBIOKAlCBaRUdFTCIKPgoKICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICBpZD0iaWFHcmFkaWVudCIKICAgICAgeDE9IjQyIgogICAgICB5MT0iNTIiCiAgICAgIHgyPSIxNTAiCiAgICAgIHkyPSIxNjAiCiAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiMyQTAwNDgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIyMiUiICBzdG9wLWNvbG9yPSIjNTYwMDcyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNDUlIiAgc3RvcC1jb2xvcj0iIzgwMDA4MCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY3JSIgIHN0b3AtY29sb3I9IiNBOTAwNzIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NCUiICBzdG9wLWNvbG9yPSIjRDUwMDQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGMDAwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDwhLS0gSVNPVElQTyAtLT4KICA8cmVjdAogICAgeD0iNDgiCiAgICB5PSI1NiIKICAgIHdpZHRoPSIxMDAiCiAgICBoZWlnaHQ9IjEwMCIKICAgIGZpbGw9Im5vbmUiCiAgICBzdHJva2U9InVybCgjaWFHcmFkaWVudCkiCiAgICBzdHJva2Utd2lkdGg9IjE1IgogICAgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIKICAvPgoKICA8IS0tIEJMT1FVRSBUSVBPR1LDgUZJQ08gLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTgwIDApIj4KCiAgICA8IS0tIE5vbWJyZSBwcmluY2lwYWwgLS0+CiAgICA8dGV4dAogICAgICB4PSIwIgogICAgICB5PSIxMTYiCiAgICAgIGZpbGw9IiMwMDAwMDAiCiAgICAgIGZvbnQtZmFtaWx5PSInRE0gU2VyaWYgRGlzcGxheScsICdUaW1lcyBOZXcgUm9tYW4nLCBHZW9yZ2lhLCBzZXJpZiIKICAgICAgZm9udC1zaXplPSI3NiIKICAgICAgZm9udC13ZWlnaHQ9IjQwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiCiAgICA+CiAgICAgIElBIEFQTElDQURBCiAgICA8L3RleHQ+CgogICAgPCEtLSBGaXJtYSBpbnN0aXR1Y2lvbmFsIC0tPgogICAgPHRleHQKICAgICAgeD0iMiIKICAgICAgeT0iMTU0IgogICAgICBmaWxsPSIjMDAwMDAwIgogICAgICBmb250LWZhbWlseT0iJ0ludGVyJywgQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIKICAgICAgZm9udC1zaXplPSIyNyIKICAgICAgZm9udC13ZWlnaHQ9IjYwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9IjciCiAgICA+CiAgICAgIFpFR0VMCiAgICA8L3RleHQ+CgogIDwvZz4KCjwvc3ZnPgo=" alt="IA Aplicada - Zegel">
+    </button>
+    <div class="course-meta">
+      <span>CURSO PROFESIONAL</span>
+      <span>EDICION 2026 - 8 SESIONES</span>
+    </div>
+  </header>
+
+  <aside class="chapter-rail" aria-label="Navegación por capítulos">
+    <div class="rail-title">RECORRIDO</div>
+    <button class="rail-link active" data-rail="inicio" data-goto="inicio"><span>00</span><b>Inicio</b></button>
+    <button class="rail-link" data-rail="curso" data-goto="curso"><span>01</span><b>El curso</b></button>
+    <button class="rail-link" data-rail="docente" data-goto="docente"><span>02</span><b>Docente</b></button>
+    <button class="rail-link" data-rail="bloques" data-goto="bloques"><span>03</span><b>Bloques</b></button>
+    <button class="rail-link" data-rail="perfiles" data-goto="perfiles"><span>04</span><b>Perfiles</b></button>
+    <button class="rail-link" data-rail="evaluacion" data-goto="evaluacion"><span>05</span><b>Evaluación</b></button>
+    <button class="rail-link" data-rail="cierre" data-goto="cierre"><span>06</span><b>Cierre</b></button>
+  </aside>
+
+  <div class="page-shell">
+<section id="inicio" class="hero chapter-section">
+  <div class="eyebrow"><span>EDICION 2026</span><span>ZEGEL EDUCACION EJECUTIVA</span></div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">CURSO PROFESIONAL 2026</p>
+      <h1>Inteligencia Artificial<br><em>Aplicada</em></h1>
+      <p class="hero-lead">Ocho sesiones de cuatro horas para integrar la IA en tus procesos: datos, contenido, agentes y criterio.</p>
+      <button class="primary-button" data-goto="curso">COMENZAR EL RECORRIDO <span>&#8595;</span></button>
+    </div>
+    <div class="hero-figure" aria-label="Diagrama: datos, contenido y agentes alrededor del criterio profesional">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="orbit orbit-three"></div>
+      <div class="core">CRITERIO</div>
+      <span class="node node-a">DATOS</span>
+      <span class="node node-b">CONTENIDO</span>
+      <span class="node node-c">AGENTES</span>
+      <span class="figure-index">FIG. 01</span>
+    </div>
+  </div>
+  <div class="hero-footer"><span>CRITERIO</span><span>DATOS</span><span>AGENTES</span><span>GOBIERNO</span></div>
+</section>
+
+<section id="curso" class="chapter-section opening-chapter">
+  <div class="section-label"><span>CAPITULO 01</span><span>ACERCA DEL CURSO</span></div>
+
+  <div class="opening-grid">
+    <div>
+      <p class="kicker accent">ACERCA DEL CURSO</p>
+      <h2>Para profesionales<br>de cualquier campo.</h2>
+    </div>
+    <div class="opening-question">
+      <p>Integra la Inteligencia Artificial en tus procesos de trabajo, automatiza tareas, decide con datos y genera contenido digital profesional.</p>
+      <strong>&#191;Qu&eacute; proceso tuyo empieza a correr solo este mes?</strong>
+    </div>
+  </div>
+
+  <div class="dual-principles">
+    <article>
+      <span>UNIDAD DE COMPETENCIA</span>
+      <h3>Decidir con datos potenciados por IA e implementar soluciones con enfoque cr&iacute;tico y &eacute;tico.</h3>
+      <p>Maximiza el impacto profesional y preserva la autonom&iacute;a humana.</p>
+    </article>
+    <article>
+      <span>LOGRO DEL CURSO</span>
+      <h3>Dise&ntilde;ar, resolver y documentar un caso real del propio entorno profesional.</h3>
+      <p>Cada participante cierra con un entregable de alto nivel.</p>
+    </article>
+  </div>
+
+  <div class="rule-monument">
+    <span>FORMATO</span>
+    <p>8 sesiones de 4 horas</p><i>&#8594;</i><p>32 horas lectivas</p>
+  </div>
+</section>
+
+<section id="docente" class="chapter-section lesson-section alternate">
+  <div class="section-label"><span>CAPITULO 02</span><span>DOCENTE</span></div>
+
+  <div class="lesson-heading">
+    <p class="kicker accent">DOCENTE</p>
+    <h2>Ingeniero<br>C&eacute;sar E. Uribe.</h2>
+    <p class="intro-copy">Ingeniero de Sistemas con m&aacute;s de 10 a&ntilde;os de experiencia en implementaci&oacute;n de sistemas para peque&ntilde;as y medianas empresas. Educador certificado y autor de cursos de IA Aplicada para profesionales en Udemy.</p>
+  </div>
+
+  <div class="system-stack">
+    <div class="stack-label"><span>PERFIL</span><h3>Quien acompa&ntilde;a el curso.</h3></div>
+    <div class="stack-cards">
+      <article><span>01</span><b>EXPERIENCIA</b><p>M&aacute;s de 10 a&ntilde;os implementando sistemas en pymes.</p></article>
+      <article><span>02</span><b>DOCENCIA</b><p>Educador certificado, Zegel Educaci&oacute;n Ejecutiva.</p></article>
+      <article><span>03</span><b>AUTOR&Iacute;A</b><p>Cursos de IA Aplicada para profesionales en Udemy.</p></article>
+      <article><span>04</span><b>CONTACTO</b><p><a href="mailto:fcuribe@zegel.pe">fcuribe@zegel.pe</a> &#8212; <a href="https://www.linkedin.com/in/uribealvites/">linkedin.com/in/uribealvites</a></p></article>
+    </div>
+  </div>
+</section>
+
+<section id="bloques" class="chapter-section lesson-section">
+  <div class="section-label"><span>CAPITULO 03</span><span>SUMILLA Y BLOQUES</span></div>
+
+  <div class="verification-hero">
+    <span class="micro-label">SUMILLA</span>
+    <h2>&#191;Qu&eacute; domina<br>quien termina?</h2>
+    <p>Fundamentos, herramientas generativas, datos, contenido, automatizaci&oacute;n y gobernanza.</p>
+  </div>
+
+  <table class="tabla-editorial">
+    <caption>Los ocho bloques del curso y su entregable</caption>
+    <thead><tr><th>Bloque</th><th>Qu&eacute; se domina</th><th>Entregable</th></tr></thead>
+    <tbody>
+      <tr><td>Fundamentos de IA contempor&aacute;nea</td><td>Modelos de lenguaje, chatbots actuales y ROI inmediato</td><td>Comparativa propia de asistentes</td></tr>
+      <tr><td>Prompting avanzado y &eacute;tica</td><td>Framework OSAC, roles, ejemplos y evaluaci&oacute;n cr&iacute;tica</td><td>Toolkit personal de prompts</td></tr>
+      <tr><td>An&aacute;lisis y reportes automatizados</td><td>Python con Pandas, tableros web y generaci&oacute;n de insights</td><td>Dashboard automatizado</td></tr>
+      <tr><td>Decisiones estrat&eacute;gicas con IA</td><td>An&aacute;lisis predictivo, simulaciones y KPIs inteligentes</td><td>Motor de decisi&oacute;n sectorial</td></tr>
+      <tr><td>Generaci&oacute;n multimodal</td><td>Texto, imagen, audio y video con herramientas actuales</td><td>Pieza digital completa</td></tr>
+      <tr><td>Gesti&oacute;n del conocimiento</td><td>Corpus propio, NotebookLM y arquitectura de conocimiento viva</td><td>Asistente con base documental</td></tr>
+      <tr><td>Agentes y automatizaci&oacute;n</td><td>Apps Script, Python con LLM, interfaces y agentes conectados</td><td>Agente aut&oacute;nomo de trabajo</td></tr>
+      <tr><td>Soberan&iacute;a de datos y hoja de ruta</td><td>IA local, cumplimiento normativo y adopci&oacute;n profesional</td><td>Roadmap 2026&#8211;2027</td></tr>
+    </tbody>
+  </table>
+
+  <div class="master-sequence">
+    <article><span>01</span><h3>Criterio</h3><p>Entender el alcance real de cada modelo.</p></article>
+    <i>&#8594;</i><article><span>02</span><h3>Construcci&oacute;n</h3><p>Convertir ese criterio en algo que corre solo.</p></article>
+    <i>&#8594;</i><article><span>03</span><h3>Gobierno</h3><p>Decidir qu&eacute; datos salen y qu&eacute; se firma.</p></article>
+  </div>
+</section>
+
+<section id="perfiles" class="chapter-section lesson-section alternate">
+  <div class="section-label"><span>CAPITULO 04</span><span>PERFILES</span></div>
+
+  <div class="lesson-heading">
+    <p class="kicker accent">PERFILES</p>
+    <h2>Seis perfiles,<br>un mismo m&eacute;todo.</h2>
+    <p class="intro-copy">Los perfiles se combinan: la mayor&iacute;a de participantes reconoce dos.</p>
+  </div>
+
+  <table class="tabla-editorial">
+    <caption>Perfiles del curso y resultado esperado</caption>
+    <thead><tr><th>Perfil</th><th>Te reconoces si&#8230;</th><th>Qu&eacute; te llevas</th></tr></thead>
+    <tbody>
+      <tr><td>IA para todos</td><td>Usas la IA para consultas sueltas y buscas m&eacute;todo</td><td>Fundamentos, criterio y uso diario ordenado</td></tr>
+      <tr><td>An&aacute;lisis de datos</td><td>Vives entre hojas de c&aacute;lculo y reportes</td><td>An&aacute;lisis asistido y tableros que se actualizan solos</td></tr>
+      <tr><td>Apoyo profesional de nicho</td><td>Trabajas en legal, marketing, RR. HH., salud u operaciones</td><td>Flujos propios de tu especialidad</td></tr>
+      <tr><td>Educadores y formadores</td><td>Dise&ntilde;as clases, materiales o evaluaciones</td><td>Materiales personalizados y evaluaci&oacute;n asistida</td></tr>
+      <tr><td>Tomadores de decisi&oacute;n</td><td>Diriges equipo, proyecto o presupuesto</td><td>Criterio para invertir, medir riesgo y adoptar</td></tr>
+      <tr><td>Iniciaci&oacute;n t&eacute;cnica</td><td>Programas algo o est&aacute;s listo para empezar</td><td>Modelos locales, agentes e integraciones</td></tr>
+    </tbody>
+  </table>
+
+  <div class="transform-grid">
+    <article><span>ORDENAR</span><p>&#8220;Tengo la informaci&oacute;n dispersa en cien archivos.&#8221;</p></article>
+    <article><span>ANALIZAR</span><p>&#8220;Cierro el mes leyendo datos a mano.&#8221;</p></article>
+    <article><span>PRODUCIR</span><p>&#8220;Publico contenido cada semana.&#8221;</p></article>
+    <article><span>DELEGAR</span><p>&#8220;Repito la misma tarea todos los lunes.&#8221;</p></article>
+  </div>
+</section>
+
+<section id="evaluacion" class="chapter-section lesson-section">
+  <div class="section-label"><span>CAPITULO 05</span><span>EVALUACION</span></div>
+
+  <div class="verification-hero">
+    <span class="micro-label">MEC&Aacute;NICA</span>
+    <h2>&#191;C&oacute;mo se<br>eval&uacute;a el curso?</h2>
+    <p>Dos proyectos sobre casos reales, con peso id&eacute;ntico.</p>
+  </div>
+
+  <div class="dual-principles">
+    <article>
+      <span>PROYECTO PARCIAL &#8212; 50 %</span>
+      <h3>An&aacute;lisis de datos aplicado a un problema propio.</h3>
+      <p>Se entrega el caso, los datos trabajados y la decisi&oacute;n que sale de ellos.</p>
+    </article>
+    <article>
+      <span>PROYECTO FINAL &#8212; 50 %</span>
+      <h3>Soluci&oacute;n construida, documentada y en funcionamiento.</h3>
+      <p>Se elige una de las tres rutas y se sustenta el resultado.</p>
+    </article>
+  </div>
+
+  <div class="strategy-grid">
+    <article><span>01</span><h3>Contenido</h3><p>Imagen y post publicitario con marca propia.</p><small>RUTA CREATIVA</small></article>
+    <article><span>02</span><h3>Asistente</h3><p>Chatbot sobre una base documental propia.</p><small>RUTA DE CONOCIMIENTO</small></article>
+    <article><span>03</span><h3>Automatizaci&oacute;n</h3><p>Flujo o agente en Python que ejecuta una tarea real.</p><small>RUTA T&Eacute;CNICA</small></article>
+  </div>
+
+  <div class="practice-card">
+    <div><span>RECORRIDO DEL PROYECTO</span><h3>Del caso propio al entregable sustentado.</h3></div>
+    <ol>
+      <li><span>01</span>Elegir un proceso real y medir su costo actual.</li>
+      <li><span>02</span>Construir la soluci&oacute;n con las herramientas del bloque.</li>
+      <li><span>03</span>Documentar decisiones, l&iacute;mites y uso de IA.</li>
+      <li><span>04</span>Sustentar el resultado y el ahorro obtenido.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="cierre" class="chapter-section lesson-section final-section">
+  <div class="section-label"><span>CAPITULO 06</span><span>CERTIFICACION Y RECURSOS</span></div>
+
+  <div class="rule-monument">
+    <span>CERTIFICACI&Oacute;N</span>
+    <p>Hasta 4 inasistencias</p><i>&#8594;</i><p>acceso a la certificaci&oacute;n</p>
+  </div>
+
+  <div class="limits-grid">
+    <article><span>REQUISITO 01</span><h3>Asistencia</h3><p>Cuatro inasistencias es el m&aacute;ximo permitido sobre las ocho sesiones.</p></article>
+    <article><span>REQUISITO 02</span><h3>Entregas</h3><p>Ambos proyectos, cada uno con la mitad de la nota final.</p></article>
+    <article><span>REQUISITO 03</span><h3>Autor&iacute;a</h3><p>Uso de IA declarado y resultado sustentado por el participante.</p></article>
+  </div>
+
+  <div class="system-stack">
+    <div class="stack-label"><span>RECURSOS</span><h3>Material disponible durante todo el curso.</h3></div>
+    <div class="stack-cards">
+      <article><span>01</span><b>AULA VIRTUAL</b><p><a href="https://eva.zegel.edu.pe/">eva.zegel.edu.pe</a></p></article>
+      <article><span>02</span><b>REPOSITORIO</b><p><a href="https://github.com/uribecesar/Curso-IA-Aplicada-Zegel">github.com/uribecesar</a></p></article>
+      <article><span>03</span><b>LABORATORIO</b><p><a href="https://lab.zildar.com/">lab.zildar.com</a></p></article>
+      <article><span>04</span><b>COMUNIDAD</b><p><a href="https://www.linkedin.com/groups/13270099/">Grupo privado en LinkedIn</a></p></article>
+    </div>
+  </div>
+
+  <div class="closing-question">
+    <span>BIENVENIDOS</span>
+    <h3>&#191;Con qu&eacute; proceso empezamos?</h3>
+    <p>Inteligencia Artificial Aplicada &#8212; Edici&oacute;n 2026.</p>
+  </div>
+
+  <footer class="site-footer">
+    <img src="data:image/svg+xml;base64,PHN2ZwogIHdpZHRoPSI5ODAiCiAgaGVpZ2h0PSIyMjAiCiAgdmlld0JveD0iMCAwIDk4MCAyMjAiCiAgZmlsbD0ibm9uZSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgcm9sZT0iaW1nIgogIGFyaWEtbGFiZWw9IklBIEFQTElDQURBIOKAlCBaRUdFTCIKPgoKICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICBpZD0iaWFHcmFkaWVudCIKICAgICAgeDE9IjQyIgogICAgICB5MT0iNTIiCiAgICAgIHgyPSIxNTAiCiAgICAgIHkyPSIxNjAiCiAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiMyQTAwNDgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIyMiUiICBzdG9wLWNvbG9yPSIjNTYwMDcyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNDUlIiAgc3RvcC1jb2xvcj0iIzgwMDA4MCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY3JSIgIHN0b3AtY29sb3I9IiNBOTAwNzIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NCUiICBzdG9wLWNvbG9yPSIjRDUwMDQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGMDAwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDwhLS0gSVNPVElQTyAtLT4KICA8cmVjdAogICAgeD0iNDgiCiAgICB5PSI1NiIKICAgIHdpZHRoPSIxMDAiCiAgICBoZWlnaHQ9IjEwMCIKICAgIGZpbGw9Im5vbmUiCiAgICBzdHJva2U9InVybCgjaWFHcmFkaWVudCkiCiAgICBzdHJva2Utd2lkdGg9IjE1IgogICAgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIKICAvPgoKICA8IS0tIEJMT1FVRSBUSVBPR1LDgUZJQ08gLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTgwIDApIj4KCiAgICA8IS0tIE5vbWJyZSBwcmluY2lwYWwgLS0+CiAgICA8dGV4dAogICAgICB4PSIwIgogICAgICB5PSIxMTYiCiAgICAgIGZpbGw9IiMwMDAwMDAiCiAgICAgIGZvbnQtZmFtaWx5PSInRE0gU2VyaWYgRGlzcGxheScsICdUaW1lcyBOZXcgUm9tYW4nLCBHZW9yZ2lhLCBzZXJpZiIKICAgICAgZm9udC1zaXplPSI3NiIKICAgICAgZm9udC13ZWlnaHQ9IjQwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiCiAgICA+CiAgICAgIElBIEFQTElDQURBCiAgICA8L3RleHQ+CgogICAgPCEtLSBGaXJtYSBpbnN0aXR1Y2lvbmFsIC0tPgogICAgPHRleHQKICAgICAgeD0iMiIKICAgICAgeT0iMTU0IgogICAgICBmaWxsPSIjMDAwMDAwIgogICAgICBmb250LWZhbWlseT0iJ0ludGVyJywgQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIKICAgICAgZm9udC1zaXplPSIyNyIKICAgICAgZm9udC13ZWlnaHQ9IjYwMCIKICAgICAgbGV0dGVyLXNwYWNpbmc9IjciCiAgICA+CiAgICAgIFpFR0VMCiAgICA8L3RleHQ+CgogIDwvZz4KCjwvc3ZnPgo=" alt="IA Aplicada &#8212; Zegel">
+    <div><b>Inteligencia Artificial Aplicada &#8212; Edici&oacute;n 2026</b><span>Docente: Ingeniero C&eacute;sar E. Uribe</span></div>
+    <div><a href="mailto:fcuribe@zegel.pe">fcuribe@zegel.pe</a><a href="https://www.linkedin.com/in/uribealvites/">LinkedIn</a></div>
+  </footer>
+</section>
+  </div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var chapters = ["inicio", "curso", "docente", "bloques", "perfiles", "evaluacion", "cierre"];
+
+  document.querySelectorAll("[data-goto]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var target = document.getElementById(el.dataset.goto);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  function setActive(id) {
+    document.querySelectorAll(".rail-link").forEach(function (link) {
+      link.classList.toggle("active", link.dataset.rail === id);
+    });
+  }
+
+  /* Capitulo activo segun la posicion de scroll (linea de referencia al 28% del viewport) */
+  function updateActive() {
+    var line = window.innerHeight * 0.28;
+    var current = chapters[0];
+    chapters.forEach(function (id) {
+      var element = document.getElementById(id);
+      if (element && element.getBoundingClientRect().top <= line) current = id;
+    });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      current = chapters[chapters.length - 1];
+    }
+    setActive(current);
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { ticking = false; updateActive(); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  updateActive();
+
+  /* Bloque revelable opcional: <button data-reveal="id"> ... <div id="id" data-reveal-target hidden> */
+  document.querySelectorAll("[data-reveal]").forEach(function (trigger) {
+    var panel = document.getElementById(trigger.dataset.reveal);
+    var abierto = trigger.querySelector("[data-reveal-open]");
+    var cerrado = trigger.querySelector("[data-reveal-closed]");
+    if (!panel) return;
+    trigger.addEventListener("click", function () {
+      var open = panel.hidden;
+      panel.hidden = !open;
+      trigger.classList.toggle("open", open);
+      if (abierto) abierto.hidden = !open;
+      if (cerrado) cerrado.hidden = open;
+    });
+  });
+})();
+</script>
+</body>
+</html>
