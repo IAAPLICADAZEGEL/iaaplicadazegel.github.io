@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casos aplicados e IA en el análisis de datos descriptivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff;
+  --raise:#faf9fa;
+  --ink:#16141a;
+  --soft:#4a4650;
+  --muted:#807a86;
+  --line:#e7e4ea;
+  --line-soft:#f0eef2;
+  --accent:#a3005c;
+  --focus:#a3005c;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#131215;
+    --raise:#1a181d;
+    --ink:#eeecf0;
+    --soft:#b6b1bb;
+    --muted:#8b8593;
+    --line:#2c2932;
+    --line-soft:#232028;
+    --accent:#ff6fa5;
+    --focus:#ff6fa5;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131215;
+  --raise:#1a181d;
+  --ink:#eeecf0;
+  --soft:#b6b1bb;
+  --muted:#8b8593;
+  --line:#2c2932;
+  --line-soft:#232028;
+  --accent:#ff6fa5;
+  --focus:#ff6fa5;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- estructura ---------- */
+.shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:0;max-width:1180px;margin:0 auto}
+
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  display:flex;flex-direction:column;
+  padding:44px 34px 34px 28px;
+  border-right:1px solid var(--line-soft);
+}
+.marca{font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--ink)}
+.marca span{display:block;margin-top:3px;color:var(--muted);font-weight:500}
+.rail nav{margin-top:38px;display:flex;flex-direction:column}
+.rail a{
+  display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:baseline;
+  padding:7px 0;font-size:13px;line-height:1.4;color:var(--muted);text-decoration:none;
+  transition:color .18s ease;
+}
+.rail a i{font-style:normal;font-size:10px;font-variant-numeric:tabular-nums}
+.rail a:hover{color:var(--ink)}
+.rail a.on{color:var(--ink);font-weight:500}
+.rail a.on i{color:var(--accent)}
+.rail .sep{margin:16px 0 8px;font-size:9px;font-weight:600;letter-spacing:.18em;color:var(--muted);opacity:.75}
+.rail .pie{margin-top:auto;font-size:11px;line-height:1.6;color:var(--muted)}
+
+main{padding:0 0 120px}
+.col{max-width:760px;padding:0 56px}
+
+/* ---------- portada ---------- */
+.portada{padding:22vh 56px 16vh;max-width:820px}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--accent)}
+.portada h1{
+  margin-top:22px;
+  font-family:"DM Serif Display",Georgia,serif;font-weight:400;
+  font-size:clamp(38px,5.2vw,60px);line-height:1.08;letter-spacing:-.02em;
+  text-wrap:balance;
+}
+.portada .bajada{margin-top:26px;max-width:60ch;font-size:17px;line-height:1.7;color:var(--soft)}
+.portada .meta{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+/* ---------- secciones ---------- */
+section.caso{padding:0 56px;margin-top:14vh;scroll-margin-top:40px;max-width:820px}
+.caso>header{padding-bottom:26px;border-bottom:1px solid var(--ink)}
+.caso .rot{display:flex;justify-content:space-between;gap:20px;font-size:10px;font-weight:600;letter-spacing:.18em;color:var(--muted)}
+.caso .rot b{color:var(--accent);font-weight:600}
+.caso h2{
+  margin-top:16px;
+  font-family:"DM Serif Display",Georgia,serif;font-weight:400;
+  font-size:clamp(27px,3.2vw,36px);line-height:1.18;letter-spacing:-.015em;
+  text-wrap:balance;
+}
+.situacion{margin-top:26px;max-width:66ch;color:var(--soft)}
+.situacion p+p{margin-top:14px}
+.situacion strong{color:var(--ink);font-weight:600}
+
+h3.sub{
+  margin-top:44px;padding-bottom:10px;border-bottom:1px solid var(--line-soft);
+  font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+
+/* recurso */
+.recurso{margin-top:18px;display:flex;flex-wrap:wrap;gap:26px 44px;align-items:flex-start}
+.recurso dl{display:grid;grid-template-columns:auto 1fr;gap:5px 18px;min-width:260px;flex:1 1 260px}
+.recurso dt{font-size:10px;font-weight:600;letter-spacing:.14em;color:var(--muted);padding-top:4px}
+.recurso dd{font-size:14px;line-height:1.55}
+.enlaces{display:flex;flex-direction:column;gap:8px;flex:0 0 auto}
+.enlaces a{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;
+  border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .18s ease;
+}
+.enlaces a::after{content:"\2197";font-size:12px;opacity:.7}
+.enlaces a:hover{border-bottom-color:var(--accent)}
+
+/* objetivo */
+.objetivo{margin-top:18px;max-width:66ch;color:var(--soft)}
+.objetivo ul{margin-top:14px;columns:2;column-gap:40px;list-style:none}
+.objetivo li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14.5px;line-height:1.6;break-inside:avoid}
+.objetivo li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:1px;background:var(--muted)}
+
+/* datos en bruto */
+.bruto{margin-top:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 40px}
+.bruto h4{font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--muted);margin-bottom:10px}
+.bruto p{font-size:14px;line-height:1.6}
+.bruto p+p{margin-top:8px}
+.bruto ul{list-style:none;margin-top:6px}
+.bruto li{position:relative;padding-left:16px;font-size:14px;line-height:1.6;color:var(--soft)}
+.bruto li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--line)}
+.bruto b{font-weight:600}
+
+/* tabla */
+table{width:100%;margin-top:18px;border-collapse:collapse;font-size:14px}
+caption{text-align:left;font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--muted);padding-bottom:12px}
+th,td{text-align:left;padding:10px 16px 10px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+th{font-size:10px;font-weight:600;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+td{color:var(--soft)}
+td:first-child{color:var(--ink)}
+.tabla-wrap{overflow-x:auto}
+
+/* prompts */
+.prompts{margin-top:18px;display:flex;flex-direction:column;gap:14px}
+.prompt{border:1px solid var(--line);background:var(--raise)}
+.prompt>header{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 16px;border-bottom:1px solid var(--line-soft);
+}
+.prompt>header i{font-style:normal;font-size:11px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.prompt>header b{flex:1;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.copiar{
+  border:1px solid var(--line);background:var(--paper);color:var(--muted);
+  padding:6px 11px;font:inherit;font-size:10px;font-weight:600;letter-spacing:.12em;
+  cursor:pointer;transition:color .18s ease,border-color .18s ease;
+}
+.copiar:hover{color:var(--accent);border-color:var(--accent)}
+.copiar.ok{color:var(--paper);background:var(--accent);border-color:var(--accent)}
+.prompt .txt{padding:18px 20px 20px;font-size:16px;line-height:1.62;color:var(--ink)}
+.prompt .txt ul{list-style:none;margin-top:8px}
+.prompt .txt li{position:relative;padding-left:18px}
+.prompt .txt li::before{content:"";position:absolute;left:0;top:.78em;width:8px;height:1px;background:var(--muted)}
+.prompt .txt dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px}
+.prompt .txt dt{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:6px}
+.raw{position:absolute;width:1px;height:1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* pregunta */
+.pregunta{margin-top:40px;padding:22px 0 0;border-top:1px solid var(--line)}
+.pregunta span{font-size:10px;font-weight:600;letter-spacing:.18em;color:var(--muted)}
+.pregunta p{margin-top:12px;max-width:60ch;font-size:18px;line-height:1.55;color:var(--ink)}
+.pregunta small{display:block;margin-top:10px;max-width:62ch;font-size:14px;line-height:1.6;color:var(--muted)}
+
+/* pie */
+.pie-pagina{margin:16vh 56px 0;max-width:820px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 28px;font-size:12px;color:var(--muted)}
+.pie-pagina a{color:var(--accent);text-decoration:none}
+.pie-pagina a:hover{text-decoration:underline}
+
+/* responsive */
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line-soft);padding:22px 24px}
+  .rail nav{margin-top:18px;flex-direction:row;flex-wrap:wrap;gap:2px 18px}
+  .rail .sep{display:none}
+  .rail .pie{display:none}
+  .rail a{grid-template-columns:auto auto;gap:7px;padding:4px 0}
+  .portada{padding:12vh 24px 8vh}
+  .col,section.caso{padding:0 24px}
+  .pie-pagina{margin:12vh 24px 0}
+  .objetivo ul{columns:1}
+  .bruto{grid-template-columns:1fr}
+}
+</style>
+
+</head>
+<body>
+<div class="shell">
+
+<aside class="rail">
+  <div class="marca">IA APLICADA<span>ZEGEL · SESIÓN 02</span></div>
+  <nav id="rail">
+    <a href="#inicio" data-id="inicio" class="on"><i>00</i><span>Presentación</span></a>
+    <div class="sep">BLOQUE 1 · DOCUMENTOS</div>
+    <a href="#caso-01" data-id="caso-01"><i>01</i><span>Traducción de un documento técnico</span></a>
+    <a href="#caso-02" data-id="caso-02"><i>02</i><span>Convertir un documento en una tabla</span></a>
+    <a href="#caso-03" data-id="caso-03"><i>03</i><span>De una transcripción a un informe</span></a>
+    <a href="#caso-04" data-id="caso-04"><i>04</i><span>De un borrador a un CV profesional</span></a>
+    <div class="sep">BLOQUE 2 · DATOS</div>
+    <a href="#caso-05" data-id="caso-05"><i>05</i><span>Convertir un CV en una página web</span></a>
+    <a href="#caso-06" data-id="caso-06"><i>06</i><span>Informe descriptivo desde un Excel</span></a>
+    <a href="#caso-07" data-id="caso-07"><i>07</i><span>Un Excel como dashboard interactivo</span></a>
+    <a href="#caso-08" data-id="caso-08"><i>08</i><span>Dashboard para datos externos</span></a>
+  </nav>
+  <div class="pie">Docente<br>Ing. César Uribe</div>
+</aside>
+
+<main>
+  <header class="portada" id="inicio">
+    <p class="eyebrow">SESIÓN 02</p>
+    <h1>Casos aplicados e IA en el análisis de datos descriptivo</h1>
+    <p class="bajada">Ocho casos de trabajo. Cada uno con su situación, el recurso que necesitas descargar,
+    el objetivo y los cuatro prompts de ejemplo tal como se dictaron. El botón <strong>COPIAR</strong> lleva
+    cada prompt al portapapeles sin modificarlo.</p>
+    <p class="meta">Inteligencia Artificial Generativa Aplicada · Curso de Zegel</p>
+  </header>
+
+<section class="caso" id="caso-01">
+  <header>
+    <div class="rot"><b>CASO 01</b><span>BLOQUE 1 · DOCUMENTOS</span></div>
+    <h2>Traducción de un documento técnico</h2>
+  </header>
+  <div class="situacion"><p>Trabajas en el área administrativa de una empresa que comercializa suministros eléctricos. El área técnica necesita revisar una ficha técnica de un producto de 3M cuya documentación está en inglés.</p><p>Tu tarea es utilizar IA para obtener una versión en español que conserve correctamente la información técnica del documento.</p></div>
+  <h3 class="sub">Recurso</h3>
+  <div class="recurso"><dl><dt>DOCUMENTO</dt><dd>3M&#8482; Scotch 9545N Impregnated Cloth Tape — Technical Data Sheet</dd><dt>EXTENSIÓN</dt><dd>2 páginas</dd><dt>FUENTE</dt><dd>3M</dd></dl><div class="enlaces"><a href="https://multimedia.3m.com/mws/media/1275511O/technical-data-sheet-scotch-9545n-2012-09-21.pdf" target="_blank" rel="noopener">Abrir ficha técnica oficial (PDF)</a></div></div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Traducir la ficha técnica al español manteniendo:</p><ul><li>terminología técnica</li><li>unidades de medida</li><li>valores numéricos</li><li>temperaturas</li><li>referencias técnicas</li><li>estructura del contenido</li></ul></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Traduce este documento técnico al español. Mantén correctamente la terminología técnica, unidades, valores y advertencias del documento original.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Traduce este documento técnico al español. Mantén correctamente la terminología técnica, unidades, valores y advertencias del documento original.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Traduce esta ficha técnica al español para que pueda ser revisada por el área técnica de una empresa de suministros eléctricos. Conserva términos técnicos, valores, unidades y advertencias.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Traduce esta ficha técnica al español para que pueda ser revisada por el área técnica de una empresa de suministros eléctricos. Conserva términos técnicos, valores, unidades y advertencias.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Traduce esta ficha técnica al español:</p><ul><li>conserva terminología técnica;</li><li>no modifiques cifras ni unidades;</li><li>respeta advertencias;</li><li>mantén la estructura original;</li><li>usa español técnico claro.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Traduce esta ficha técnica al español:
+- conserva terminología técnica;
+- no modifiques cifras ni unidades;
+- respeta advertencias;
+- mantén la estructura original;
+- usa español técnico claro.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>traductor técnico.</dd><dt>Objetivo</dt><dd>traducir esta ficha técnica al español.</dd><dt>Salida</dt><dd>versión completa y estructurada.</dd><dt>Advertencia</dt><dd>no alteres cifras, unidades ni términos técnicos.</dd><dt>Contexto</dt><dd>será revisada por personal técnico de una empresa de suministros eléctricos.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: traductor técnico.
+Objetivo: traducir esta ficha técnica al español.
+Salida: versión completa y estructurada.
+Advertencia: no alteres cifras, unidades ni términos técnicos.
+Contexto: será revisada por personal técnico de una empresa de suministros eléctricos.</textarea>
+</article>
+  </div>
+  <div class="pregunta"><span>PREGUNTA DE ANÁLISIS</span><p>¿Qué elementos del prompt controlarías para reducir ese riesgo y por qué?</p><small>Una traducción puede ser gramaticalmente correcta y, aun así, resultar poco útil para un área técnica.</small></div>
+</section>
+
+<section class="caso" id="caso-02">
+  <header>
+    <div class="rot"><b>CASO 02</b><span>BLOQUE 1 · DOCUMENTOS</span></div>
+    <h2>Convertir un documento en una tabla estructurada</h2>
+  </header>
+  <div class="situacion"><p>Trabajas en el área de compras de una empresa constructora. Se recibe una ficha técnica oficial de <strong>PERÚ COMPRAS</strong> sobre un ángulo estructural de acero.</p><p>La información está distribuida entre especificaciones, normas técnicas, requisitos de embalaje y rotulado. El área de compras necesita convertirla en una <strong>tabla estructurada</strong> para compararla posteriormente con las cotizaciones de distintos proveedores.</p></div>
+  <h3 class="sub">Recurso</h3>
+  <div class="recurso"><dl><dt>DOCUMENTO</dt><dd>Ficha Técnica — Ángulo estructural L de 2&#8243; &#215; 2&#8243; &#215; 1/8&#8243;</dd><dt>FUENTE</dt><dd>Central de Compras Públicas — PERÚ COMPRAS</dd><dt>EXTENSIÓN</dt><dd>2 páginas</dd></dl><div class="enlaces"><a href="https://cdn.www.gob.pe/uploads/document/file/3046591/RJ_000032_2022.pdf" target="_blank" rel="noopener">Abrir documento oficial (PDF)</a><a href="https://www.gob.pe/institucion/perucompras/normas-legales/2935345-000032-2022-peru-compras-jefatura" target="_blank" rel="noopener">Ver publicación oficial de PERÚ COMPRAS</a></div></div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Convertir la información del documento en una tabla que permita identificar rápidamente:</p><ul><li>característica</li><li>especificación</li><li>valor o requisito</li><li>unidad, cuando corresponda</li><li>norma o referencia técnica</li></ul></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte la información de este documento en una tabla estructurada con las especificaciones técnicas del producto.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte la información de este documento en una tabla estructurada con las especificaciones técnicas del producto.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Extrae las especificaciones de esta ficha técnica y organízalas en una tabla para que el área de compras pueda comparar proveedores.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Extrae las especificaciones de esta ficha técnica y organízalas en una tabla para que el área de compras pueda comparar proveedores.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte el documento en una tabla:</p><ul><li>una característica por fila;</li><li>conserva valores y unidades;</li><li>incluye normas técnicas;</li><li>separa especificaciones y requisitos;</li><li>no omitas información relevante.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte el documento en una tabla:
+- una característica por fila;
+- conserva valores y unidades;
+- incluye normas técnicas;
+- separa especificaciones y requisitos;
+- no omitas información relevante.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>analista de compras.</dd><dt>Objetivo</dt><dd>estructurar la ficha técnica.</dd><dt>Salida</dt><dd>tabla con característica, especificación, valor/unidad y referencia.</dd><dt>Advertencia</dt><dd>no inventes ni modifiques datos.</dd><dt>Contexto</dt><dd>la tabla se usará para comparar cotizaciones de proveedores.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: analista de compras.
+Objetivo: estructurar la ficha técnica.
+Salida: tabla con característica, especificación, valor/unidad y referencia.
+Advertencia: no inventes ni modifiques datos.
+Contexto: la tabla se usará para comparar cotizaciones de proveedores.</textarea>
+</article>
+  </div>
+  <div class="pregunta"><span>PREGUNTA DE ANÁLISIS</span><p>¿Qué debería hacer la IA cuando no pueda determinar con certeza un valor o una categoría? Justifica tu decisión.</p><small>Al convertir información de una ficha técnica en una tabla, la IA podría encontrar datos incompletos o expresados de manera ambigua.</small></div>
+</section>
+
+<section class="caso" id="caso-03">
+  <header>
+    <div class="rot"><b>CASO 03</b><span>BLOQUE 1 · DOCUMENTOS</span></div>
+    <h2>Convertir una transcripción de clase en un informe</h2>
+  </header>
+  <div class="situacion"><p>Eres responsable de documentar las actividades realizadas en un curso de capacitación.</p><p>Dispones de la transcripción automática completa de la primera sesión del curso <strong>Inteligencia Artificial Aplicada</strong>. La transcripción contiene explicaciones del docente, intervenciones de estudiantes, ejemplos, indicaciones administrativas y conversaciones propias de una clase en vivo.</p><p>Necesitas utilizar IA para transformar este material en un <strong>informe formal de lo trabajado durante la sesión</strong>.</p></div>
+  <h3 class="sub">Recurso</h3>
+  <div class="recurso"><dl><dt>DOCUMENTO</dt><dd>00.01.2026-08 INTELIGENCIA ARTIFICIAL APLICADA</dd><dt>TIPO</dt><dd>Transcripción automática de clase</dd><dt>DURACIÓN</dt><dd>4 horas</dd><dt>FECHA</dt><dd>19 de agosto de 2026</dd></dl><div class="enlaces"><a href="https://docs.google.com/document/d/12pZMefAETt8RC2aZWdYyn22hkDfe8qSQ/edit?usp=sharing&amp;ouid=104780975657225064450&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Abrir transcripción</a></div></div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Generar un informe que sintetice lo desarrollado durante la clase e identifique:</p><ul><li>temas trabajados</li><li>conceptos principales</li><li>actividades realizadas</li><li>ejemplos desarrollados</li><li>herramientas mencionadas</li><li>participaciones relevantes</li><li>conclusiones de la sesión</li></ul></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte esta transcripción de clase en un informe de lo trabajado durante la sesión.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte esta transcripción de clase en un informe de lo trabajado durante la sesión.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Genera un informe de lo trabajado en esta clase a partir de la transcripción. Será utilizado como registro académico de la sesión.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Genera un informe de lo trabajado en esta clase a partir de la transcripción. Será utilizado como registro académico de la sesión.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Genera un informe de la clase:</p><ul><li>organiza los temas tratados;</li><li>resume los conceptos principales;</li><li>identifica actividades y ejemplos;</li><li>incluye herramientas mencionadas;</li><li>elimina saludos, repeticiones y conversaciones irrelevantes;</li><li>usa lenguaje formal y claro.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Genera un informe de la clase:
+- organiza los temas tratados;
+- resume los conceptos principales;
+- identifica actividades y ejemplos;
+- incluye herramientas mencionadas;
+- elimina saludos, repeticiones y conversaciones irrelevantes;
+- usa lenguaje formal y claro.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>asistente académico.</dd><dt>Objetivo</dt><dd>convertir la transcripción en un informe de la sesión.</dd><dt>Salida</dt><dd>informe con temas, conceptos, actividades, ejemplos y conclusiones.</dd><dt>Advertencia</dt><dd>usa únicamente información presente en la transcripción y evita inventar contenidos.</dd><dt>Contexto</dt><dd>corresponde a la primera clase de un curso de Inteligencia Artificial Aplicada y servirá como registro académico.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: asistente académico.
+Objetivo: convertir la transcripción en un informe de la sesión.
+Salida: informe con temas, conceptos, actividades, ejemplos y conclusiones.
+Advertencia: usa únicamente información presente en la transcripción y evita inventar contenidos.
+Contexto: corresponde a la primera clase de un curso de Inteligencia Artificial Aplicada y servirá como registro académico.</textarea>
+</article>
+  </div>
+  <div class="pregunta"><span>PREGUNTA DE ANÁLISIS</span><p>¿Qué criterio utilizarías para decidir qué contenido forma parte del informe y qué contenido debe excluirse?</p><small>Una transcripción contiene información académica, saludos, repeticiones, problemas técnicos y conversaciones espontáneas.</small></div>
+</section>
+
+<section class="caso" id="caso-04">
+  <header>
+    <div class="rot"><b>CASO 04</b><span>BLOQUE 1 · DOCUMENTOS</span></div>
+    <h2>Convertir un borrador personal en un CV profesional</h2>
+  </header>
+  <div class="situacion"><p>Diego tiene 25 años y busca mejorar su perfil profesional para postular a nuevas oportunidades laborales.</p><p>Ha reunido información sobre su formación, experiencia y habilidades en un borrador desordenado. Algunos datos están incompletos, varias funciones están escritas de forma informal y no sabe cómo presentar sus logros de manera atractiva para el mercado laboral de 2026.</p><p>Necesita utilizar IA para transformar este borrador en un <strong>currículum profesional, claro y competitivo</strong>.</p></div>
+  <h3 class="sub">Borrador de información</h3>
+  <div class="bruto">
+    <div>
+      <h4>DATOS</h4>
+      <p><b>Diego Ramos Mendoza</b><br>25 años · Ica, Perú<br>Administración de Empresas</p>
+      <h4 style="margin-top:20px">FORMACIÓN</h4>
+      <ul>
+        <li>Bachiller en Administración de Empresas.</li>
+        <li>Universidad Nacional San Luis Gonzaga.</li>
+        <li>Egresado en 2024.</li>
+        <li>Curso de Excel avanzado.</li>
+        <li>Curso corto de Power BI.</li>
+        <li>Curso de Inteligencia Artificial aplicada a la gestión.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>EXPERIENCIA</h4>
+      <p><b>Asistente administrativo</b> — Distribuidora Santa Elena, 2024–2026</p>
+      <ul>
+        <li>hacía reportes;</li>
+        <li>apoyaba con documentos;</li>
+        <li>coordinaba con proveedores;</li>
+        <li>revisaba inventarios;</li>
+        <li>ayudaba a actualizar datos en Excel;</li>
+        <li>hacía seguimiento de pedidos;</li>
+        <li>a veces preparaba presentaciones para reuniones.</li>
+      </ul>
+      <p style="margin-top:14px"><b>Practicante administrativo</b> — Servicios del Sur, 2023–2024</p>
+      <ul>
+        <li>apoyo en archivo;</li>
+        <li>registro de documentos;</li>
+        <li>atención a clientes;</li>
+        <li>actualización de bases de datos;</li>
+        <li>apoyo al área de compras.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>HABILIDADES</h4>
+      <ul>
+        <li>Excel</li><li>Power BI básico</li><li>Word</li><li>PowerPoint</li>
+        <li>ChatGPT</li><li>Gemini</li><li>organización</li><li>comunicación</li><li>trabajo en equipo</li>
+      </ul>
+    </div>
+    <div>
+      <h4>OTROS DATOS</h4>
+      <ul>
+        <li>Inglés básico.</li>
+        <li>Disponibilidad inmediata.</li>
+        <li>Le interesa trabajar en áreas de operaciones, administración o análisis de información.</li>
+      </ul>
+    </div>
+  </div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Transformar el borrador en un currículum que:</p><ul><li>presente un perfil profesional sólido</li><li>organice correctamente experiencia y formación</li><li>convierta funciones simples en aportes profesionales</li><li>destaque herramientas digitales</li><li>use lenguaje actual y concreto</li><li>sea adecuado para procesos de selección en 2026</li><li>evite exagerar o inventar experiencia</li></ul></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte estos datos en un currículum profesional y atractivo para buscar trabajo en 2026.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte estos datos en un currículum profesional y atractivo para buscar trabajo en 2026.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Crea un CV profesional con estos datos para un joven administrador con dos años de experiencia que busca puestos administrativos, de operaciones o análisis.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Crea un CV profesional con estos datos para un joven administrador con dos años de experiencia que busca puestos administrativos, de operaciones o análisis.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Crea un CV con estos datos:</p><ul><li>máximo 2 páginas;</li><li>perfil profesional breve;</li><li>experiencia en orden cronológico;</li><li>funciones redactadas con verbos de acción;</li><li>destaca herramientas digitales;</li><li>lenguaje profesional y concreto;</li><li>no inventes logros ni experiencia.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Crea un CV con estos datos:
+- máximo 2 páginas;
+- perfil profesional breve;
+- experiencia en orden cronológico;
+- funciones redactadas con verbos de acción;
+- destaca herramientas digitales;
+- lenguaje profesional y concreto;
+- no inventes logros ni experiencia.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>especialista en selección y empleabilidad.</dd><dt>Objetivo</dt><dd>convertir este borrador en un CV competitivo para 2026.</dd><dt>Salida</dt><dd>CV profesional de máximo 2 páginas.</dd><dt>Advertencia</dt><dd>no inventes experiencia, métricas ni certificaciones.</dd><dt>Contexto</dt><dd>candidato de 25 años, administrador, con experiencia inicial en funciones administrativas y manejo de herramientas digitales.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: especialista en selección y empleabilidad.
+Objetivo: convertir este borrador en un CV competitivo para 2026.
+Salida: CV profesional de máximo 2 páginas.
+Advertencia: no inventes experiencia, métricas ni certificaciones.
+Contexto: candidato de 25 años, administrador, con experiencia inicial en funciones administrativas y manejo de herramientas digitales.</textarea>
+</article>
+  </div>
+  <div class="pregunta"><span>PREGUNTA DE ANÁLISIS</span><p>¿Cómo distinguirías entre mejorar la redacción de una experiencia y fabricar un logro que el candidato nunca obtuvo?</p><small>Una IA puede mejorar mucho la forma en que se presenta una experiencia laboral.</small></div>
+</section>
+
+<section class="caso" id="caso-05">
+  <header>
+    <div class="rot"><b>CASO 05</b><span>BLOQUE 2 · DATOS</span></div>
+    <h2>Convertir un currículum en una página web HTML</h2>
+  </header>
+  <div class="situacion"><p>Diego ya cuenta con una versión profesional de su currículum elaborada en el bloque anterior.</p><p>Ahora necesita transformar esa información en una <strong>página web personal</strong> que pueda abrirse desde cualquier navegador y utilizarse como presentación profesional digital.</p><p>No se requiere que Diego conozca programación previamente. La tarea consiste en utilizar IA para convertir la información existente en un archivo HTML funcional.</p></div>
+  <h3 class="sub">Recurso</h3>
+  <div class="recurso"><dl><dt>RECURSO</dt><dd>El currículum desarrollado en el Caso 04</dd></dl><div class="enlaces"><a href="#caso-04" target="_blank" rel="noopener">Volver al Caso 04</a></div></div>
+  <h3 class="sub">Información base</h3>
+  <div class="bruto">
+    <div>
+      <h4>DATOS</h4>
+      <p><b>Diego Ramos Mendoza</b><br>Administración de Empresas<br>Ica, Perú</p>
+      <h4 style="margin-top:20px">PERFIL</h4>
+      <p>Profesional joven con experiencia en funciones administrativas, gestión documental, coordinación con proveedores, elaboración de reportes y manejo de herramientas digitales.</p>
+    </div>
+    <div>
+      <h4>FORMACIÓN</h4>
+      <ul>
+        <li>Bachiller en Administración de Empresas.</li>
+        <li>Universidad Nacional San Luis Gonzaga.</li>
+        <li>Egresado en 2024.</li>
+        <li>Excel avanzado.</li>
+        <li>Power BI básico.</li>
+        <li>Inteligencia Artificial aplicada a la gestión.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>EXPERIENCIA</h4>
+      <ul>
+        <li>Asistente administrativo — Distribuidora Santa Elena, 2024–2026.</li>
+        <li>Practicante administrativo — Servicios del Sur, 2023–2024.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>HERRAMIENTAS</h4>
+      <ul><li>Excel</li><li>Power BI</li><li>Word</li><li>PowerPoint</li><li>ChatGPT</li><li>Gemini</li></ul>
+    </div>
+  </div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Convertir el contenido del currículum en una página web HTML que pueda visualizarse correctamente en un navegador.</p></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte este currículum en una página web HTML profesional.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte este currículum en una página web HTML profesional.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte este CV en una página web HTML para utilizarla como presentación profesional digital.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte este CV en una página web HTML para utilizarla como presentación profesional digital.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte este CV en una web HTML:</p><ul><li>diseño profesional;</li><li>una sola página;</li><li>secciones claras;</li><li>responsive;</li><li>fácil de leer;</li><li>todo el código en un solo archivo.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte este CV en una web HTML:
+- diseño profesional;
+- una sola página;
+- secciones claras;
+- responsive;
+- fácil de leer;
+- todo el código en un solo archivo.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>desarrollador web.</dd><dt>Objetivo</dt><dd>convertir este currículum en una página web profesional.</dd><dt>Salida</dt><dd>un único archivo HTML completo y funcional.</dd><dt>Advertencia</dt><dd>conserva la información original y no inventes datos.</dd><dt>Contexto</dt><dd>será utilizado como presentación profesional de un joven administrador.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: desarrollador web.
+Objetivo: convertir este currículum en una página web profesional.
+Salida: un único archivo HTML completo y funcional.
+Advertencia: conserva la información original y no inventes datos.
+Contexto: será utilizado como presentación profesional de un joven administrador.</textarea>
+</article>
+  </div>
+</section>
+
+<section class="caso" id="caso-06">
+  <header>
+    <div class="rot"><b>CASO 06</b><span>BLOQUE 2 · DATOS</span></div>
+    <h2>Generar un informe descriptivo a partir de un archivo Excel</h2>
+  </header>
+  <div class="situacion"><p>El área administrativa de una empresa registra los <strong>gastos ejecutivos</strong> realizados por diferentes colaboradores y departamentos.</p><p>Dispones de un archivo Excel con registros de fechas, empleados, departamentos, categorías de gasto, montos, descripciones y medios de pago.</p><p>La gerencia solicita utilizar IA para obtener un <strong>informe descriptivo</strong> que permita comprender rápidamente cómo se distribuyen los gastos y cuáles son los principales patrones presentes en los datos.</p></div>
+  <h3 class="sub">Recurso</h3>
+  <div class="recurso"><dl><dt>ARCHIVO</dt><dd>002-A-gastos_ejecutivos.xlsx</dd><dt>FORMATO</dt><dd>Excel</dd><dt>CONTENIDO</dt><dd>Registros de gastos ejecutivos</dd><dt>VARIABLES</dt><dd>fecha, empleado, departamento, categoría, monto, descripción, medio de pago</dd></dl><div class="enlaces"><a href="https://docs.google.com/spreadsheets/d/1FLZgjkVE1ODmr4K6obbI8MyhiuMpcL0F/edit?usp=sharing&amp;ouid=104780975657225064450&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Abrir el Excel</a></div></div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Analizar el archivo y generar un informe descriptivo que permita identificar:</p><ul><li>gasto total</li><li>gasto promedio</li><li>distribución de gastos</li><li>principales categorías</li><li>departamentos con mayor gasto</li><li>empleados con mayor gasto registrado</li><li>evolución de los gastos en el tiempo</li><li>patrones o valores relevantes</li></ul></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Analiza este Excel y genera un informe descriptivo de los gastos.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Analiza este Excel y genera un informe descriptivo de los gastos.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Genera un informe descriptivo de estos gastos ejecutivos para que la gerencia pueda comprender su comportamiento general.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Genera un informe descriptivo de estos gastos ejecutivos para que la gerencia pueda comprender su comportamiento general.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Analiza estos gastos y genera un informe:</p><ul><li>calcula total y promedio;</li><li>compara categorías y departamentos;</li><li>identifica mayores gastos;</li><li>analiza su evolución temporal;</li><li>destaca patrones relevantes;</li><li>utiliza cifras del archivo.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Analiza estos gastos y genera un informe:
+- calcula total y promedio;
+- compara categorías y departamentos;
+- identifica mayores gastos;
+- analiza su evolución temporal;
+- destaca patrones relevantes;
+- utiliza cifras del archivo.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>analista de datos.</dd><dt>Objetivo</dt><dd>analizar los gastos ejecutivos del Excel.</dd><dt>Salida</dt><dd>informe descriptivo con métricas, comparaciones y patrones principales.</dd><dt>Advertencia</dt><dd>no inventes causas ni datos ausentes.</dd><dt>Contexto</dt><dd>el informe será utilizado por gerencia para comprender el comportamiento de los gastos.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: analista de datos.
+Objetivo: analizar los gastos ejecutivos del Excel.
+Salida: informe descriptivo con métricas, comparaciones y patrones principales.
+Advertencia: no inventes causas ni datos ausentes.
+Contexto: el informe será utilizado por gerencia para comprender el comportamiento de los gastos.</textarea>
+</article>
+  </div>
+  <div class="pregunta"><span>PREGUNTA DE ANÁLISIS</span><p>¿Podemos concluir únicamente con estos datos que ese departamento administra peor sus recursos? ¿Qué información adicional necesitaríamos antes de hacer esa afirmación?</p><small>Un informe puede mostrar que un departamento tiene un gasto mayor que los demás.</small></div>
+</section>
+
+<section class="caso" id="caso-07">
+  <header>
+    <div class="rot"><b>CASO 07</b><span>BLOQUE 2 · DATOS</span></div>
+    <h2>Convertir un Excel en un dashboard HTML interactivo</h2>
+  </header>
+  <div class="situacion"><p>Dispones de un archivo Excel con un registro de <strong>gastos personales</strong> realizados durante varios meses. El archivo contiene 50 registros organizados mediante variables como fecha, categoría, monto, descripción y método de pago.</p><p>Necesitas utilizar IA para transformar estos datos en un <strong>dashboard HTML interactivo</strong> que permita explorar visualmente el comportamiento de los gastos. El resultado deberá funcionar como un único archivo, sin depender del Excel original una vez generado.</p></div>
+  <h3 class="sub">Recurso</h3>
+  <div class="recurso"><dl><dt>ARCHIVO</dt><dd>002-B-gastos_personales.xlsx</dd><dt>FORMATO</dt><dd>Excel</dd><dt>REGISTROS</dt><dd>50 gastos personales</dd><dt>VARIABLES</dt><dd>fecha, categoría, monto, descripción, método de pago</dd></dl><div class="enlaces"><a href="https://docs.google.com/spreadsheets/d/1WhLp9AxCiAcpQB9jP1kLf8A02zWWVhui/edit?usp=sharing&amp;ouid=104780975657225064450&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Abrir el Excel</a></div></div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Generar un dashboard HTML que permita visualizar y explorar los gastos mediante:</p><ul><li>gasto total</li><li>gasto promedio</li><li>número de registros</li><li>evolución de gastos en el tiempo</li><li>distribución por categoría</li><li>distribución por método de pago</li><li>principales gastos</li><li>filtros interactivos</li><li>tabla con los registros</li></ul><p style="margin-top:14px">Todos los datos del Excel deberán quedar <strong>incrustados directamente dentro del código HTML</strong>.</p></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte este Excel en un dashboard HTML interactivo con todos los datos incrustados en el código.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte este Excel en un dashboard HTML interactivo con todos los datos incrustados en el código.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Genera un dashboard HTML interactivo a partir de estos gastos personales para analizar su comportamiento. Incluye todos los datos dentro del propio archivo HTML.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Genera un dashboard HTML interactivo a partir de estos gastos personales para analizar su comportamiento. Incluye todos los datos dentro del propio archivo HTML.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Convierte este Excel en un dashboard HTML:</p><ul><li>incluye todos los registros;</li><li>incrusta los datos en el código;</li><li>muestra indicadores principales;</li><li>incluye gráficos;</li><li>incorpora filtros;</li><li>añade una tabla completa;</li><li>funciona en un único archivo HTML.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Convierte este Excel en un dashboard HTML:
+- incluye todos los registros;
+- incrusta los datos en el código;
+- muestra indicadores principales;
+- incluye gráficos;
+- incorpora filtros;
+- añade una tabla completa;
+- funciona en un único archivo HTML.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>analista y desarrollador de visualización de datos.</dd><dt>Objetivo</dt><dd>convertir el Excel en un dashboard interactivo.</dd><dt>Salida</dt><dd>un único archivo HTML con gráficos, indicadores, filtros y tabla.</dd><dt>Advertencia</dt><dd>conserva todos los registros y no inventes datos.</dd><dt>Contexto</dt><dd>los datos representan gastos personales y deben quedar incrustados en el propio código para que el dashboard funcione sin depender del Excel.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: analista y desarrollador de visualización de datos.
+Objetivo: convertir el Excel en un dashboard interactivo.
+Salida: un único archivo HTML con gráficos, indicadores, filtros y tabla.
+Advertencia: conserva todos los registros y no inventes datos.
+Contexto: los datos representan gastos personales y deben quedar incrustados en el propio código para que el dashboard funcione sin depender del Excel.</textarea>
+</article>
+  </div>
+  <div class="pregunta"><span>PREGUNTA DE ANÁLISIS</span><p>¿Qué aporta el dashboard que el archivo Excel original no ofrece de manera inmediata, y en qué situaciones seguiría siendo preferible trabajar directamente con el Excel?</p><small>Una vez generado el dashboard, tanto el Excel original como el HTML contienen los mismos datos.</small></div>
+</section>
+
+<section class="caso" id="caso-08">
+  <header>
+    <div class="rot"><b>CASO 08</b><span>BLOQUE 2 · DATOS</span></div>
+    <h2>Generar un dashboard HTML preparado para recibir datos externos</h2>
+  </header>
+  <div class="situacion"><p>Una empresa registra sus ventas en un archivo Excel que se actualiza periódicamente.</p><p>A diferencia del caso anterior, ahora <strong>no se desea enviar todos los datos a la IA ni incrustarlos dentro del código HTML</strong>. En su lugar, se proporcionará únicamente una <strong>muestra de la estructura de los datos</strong> para que la IA pueda comprender cómo están organizados y construir un dashboard compatible con ese formato.</p><p>Una vez generado el proyecto, el archivo completo de ventas será incorporado directamente dentro del proyecto, sin volver a enviarlo al chat de IA.</p></div>
+  <h3 class="sub">Recurso</h3>
+  <div class="recurso"><dl><dt>ARCHIVO</dt><dd>002-C-ventas_ultimos_3m.xlsx</dd><dt>FORMATO</dt><dd>Excel</dd><dt>REGISTROS</dt><dd>120 ventas</dd><dt>PERIODO</dt><dd>Abril–junio de 2025</dd></dl><div class="enlaces"><a href="https://docs.google.com/spreadsheets/d/1Q5A_CZ4xkUax5WOCZ5wSt9Ww4ccDzlTk/edit?usp=sharing&amp;ouid=104780975657225064450&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Abrir el Excel</a></div></div>
+  <h3 class="sub">Objetivo</h3>
+  <div class="objetivo"><p>Generar un proyecto de dashboard HTML preparado para leer posteriormente el archivo completo de ventas. El dashboard deberá permitir analizar:</p><ul><li>ventas totales</li><li>unidades vendidas</li><li>evolución temporal</li><li>ventas por producto</li><li>ventas por región</li><li>ventas por canal</li><li>métodos de pago</li><li>principales productos</li><li>filtros interactivos</li></ul><p style="margin-top:14px">La IA deberá construir la <strong>estructura, lógica y visualización</strong>, pero no incluir los datos completos dentro del código.</p></div>
+  <h3 class="sub">Prompts de ejemplo</h3>
+  <div class="prompts">
+<article class="prompt">
+  <header><i>01</i><b>Sentido común</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Crea un dashboard HTML para analizar un archivo de ventas con esta estructura de datos. No incluyas datos reales en el código.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Crea un dashboard HTML para analizar un archivo de ventas con esta estructura de datos. No incluyas datos reales en el código.</textarea>
+</article>
+<article class="prompt">
+  <header><i>02</i><b>Resultado + contexto</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Genera un dashboard HTML preparado para analizar un Excel de ventas con estas columnas. El archivo real será añadido posteriormente al proyecto.</p></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Genera un dashboard HTML preparado para analizar un Excel de ventas con estas columnas. El archivo real será añadido posteriormente al proyecto.</textarea>
+</article>
+<article class="prompt">
+  <header><i>03</i><b>Características apiladas</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><p>Crea un dashboard HTML:</p><ul><li>usa esta estructura de columnas;</li><li>no incrustes los datos;</li><li>prepara la carga desde un archivo externo;</li><li>incluye indicadores, gráficos y filtros;</li><li>permite analizar productos, regiones, canales y ventas en el tiempo;</li><li>deja el proyecto listo para añadir el Excel real.</li></ul></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Crea un dashboard HTML:
+- usa esta estructura de columnas;
+- no incrustes los datos;
+- prepara la carga desde un archivo externo;
+- incluye indicadores, gráficos y filtros;
+- permite analizar productos, regiones, canales y ventas en el tiempo;
+- deja el proyecto listo para añadir el Excel real.</textarea>
+</article>
+<article class="prompt">
+  <header><i>04</i><b>ROSAC</b><button class="copiar" type="button">COPIAR</button></header>
+  <div class="txt"><dl><dt>Rol</dt><dd>desarrollador de dashboards y analista de datos.</dd><dt>Objetivo</dt><dd>crear un dashboard compatible con esta estructura de ventas.</dd><dt>Salida</dt><dd>proyecto HTML funcional preparado para cargar el archivo externo.</dd><dt>Advertencia</dt><dd>no incrustes ni inventes datos.</dd><dt>Contexto</dt><dd>la IA recibe solo una muestra de la estructura; el Excel completo será incorporado posteriormente dentro del proyecto.</dd></dl></div>
+  <textarea class="raw" readonly tabindex="-1" aria-hidden="true">Rol: desarrollador de dashboards y analista de datos.
+Objetivo: crear un dashboard compatible con esta estructura de ventas.
+Salida: proyecto HTML funcional preparado para cargar el archivo externo.
+Advertencia: no incrustes ni inventes datos.
+Contexto: la IA recibe solo una muestra de la estructura; el Excel completo será incorporado posteriormente dentro del proyecto.</textarea>
+</article>
+  </div>
+  <div class="pregunta"><span>PREGUNTA DE ANÁLISIS</span><p>¿Qué ventajas puede tener separar la generación del dashboard de los datos reales, especialmente cuando trabajamos con archivos grandes, información sensible o datos que cambian constantemente?</p><small>En este caso la IA conoce la estructura de los datos, pero no recibe el conjunto completo.</small></div>
+</section>
+
+  <footer class="pie-pagina">
+    <span>IA Aplicada · Zegel — Sesión 02</span>
+    <span>Docente: Ing. César Uribe</span>
+    <a href="mailto:fcuribe@zegel.pe">fcuribe@zegel.pe</a>
+    <a href="https://www.linkedin.com/in/uribealvites/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+</main>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- copiar el prompt exacto ---- */
+  function copiar(texto) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texto);
+    return new Promise(function (ok, no) {
+      var a = document.createElement("textarea");
+      a.value = texto; a.setAttribute("readonly", "");
+      a.style.position = "fixed"; a.style.top = "-1000px";
+      document.body.appendChild(a); a.select();
+      try { document.execCommand("copy") ? ok() : no(); }
+      catch (e) { no(e); }
+      finally { document.body.removeChild(a); }
+    });
+  }
+
+  document.querySelectorAll(".copiar").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var caja = b.closest(".prompt");
+      var fuente = caja && caja.querySelector(".raw");
+      if (!fuente) return;
+      copiar(fuente.value.replace(/^\n/, "").trim()).then(function () {
+        b.classList.add("ok"); b.textContent = "COPIADO";
+        setTimeout(function () { b.classList.remove("ok"); b.textContent = "COPIAR"; }, 1700);
+      }).catch(function () {
+        b.textContent = "SELECCIONA Y COPIA";
+        fuente.classList.remove("raw");
+        fuente.style.cssText = "width:100%;min-height:130px;margin:0 20px 18px;font:inherit";
+        fuente.select();
+      });
+    });
+  });
+
+  /* ---- capítulo activo en el índice ---- */
+  var enlaces = [].slice.call(document.querySelectorAll("#rail a"));
+  var ids = enlaces.map(function (a) { return a.dataset.id; });
+  var pendiente = false;
+
+  function marcar() {
+    var linea = window.innerHeight * 0.3;
+    var actual = ids[0];
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= linea) actual = id;
+    });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) actual = ids[ids.length - 1];
+    enlaces.forEach(function (a) { a.classList.toggle("on", a.dataset.id === actual); });
+  }
+
+  window.addEventListener("scroll", function () {
+    if (pendiente) return;
+    pendiente = true;
+    requestAnimationFrame(function () { pendiente = false; marcar(); });
+  }, { passive: true });
+  window.addEventListener("resize", marcar);
+  marcar();
+})();
+</script>
+</body>
+</html>
