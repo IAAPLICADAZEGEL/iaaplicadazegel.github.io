@@ -1,0 +1,40 @@
+{
+  "clases": [
+    { "archivo": "clase00.md", "n": "00", "titulo": "Presentación del curso" },
+    { "archivo": "clase01.md", "n": "01", "titulo": "Fundamentos" },
+    { "archivo": "clase02.md", "n": "02", "titulo": "Casos aplicados" },
+    { "archivo": "clase03.md", "n": "03", "titulo": "Sobre el trabajo con Datos" },
+    { "archivo": "clase04.md", "n": "04", "titulo": "Agentes" },
+    { "archivo": "clase05.md", "n": "05", "titulo": "Generacion Multimoda" },
+    { "archivo": "clase06.md", "n": "06", "titulo": "Automatizacion" },
+    { "archivo": "clase07.md", "n": "07", "titulo": "Flujos de trabajo" },
+    { "archivo": "clase08.md", "n": "08", "titulo": "Proyecto final" }
+  ],
+  "casos": [
+    { "archivo": "caso001.md", "n": "001", "titulo": "¿Qué es un KPI?" },
+    { "archivo": "caso002.md", "n": "002", "titulo": "El mensaje incómodo" },
+    { "archivo": "caso003.md", "n": "003", "titulo": "Necesito entenderlo ahora" },
+    { "archivo": "caso004.md", "n": "004", "titulo": "Necesito un resumen para mi situación" },
+    { "archivo": "caso005.md", "n": "005", "titulo": "El resumen debe cumplir condiciones" },
+    { "archivo": "caso006.md", "n": "006", "titulo": "El resumen servirá para una decisión" },
+    { "archivo": "caso007.md", "n": "007", "titulo": "Comprar una laptop" },
+    { "archivo": "caso008.md", "n": "008", "titulo": "Volvamos a la laptop" },
+    { "archivo": "caso009.md", "n": "009", "titulo": "¿Cuánto confío en esta respuesta?" },
+    { "archivo": "caso010.md", "n": "010", "titulo": "La respuesta está fuera del documento" },
+    { "archivo": "caso011.md", "n": "011", "titulo": "Del prompt escrito al prompt reutilizable" },
+    { "archivo": "caso012.md", "n": "012", "titulo": "La IA produce más rápido de lo que organizamos" },
+    { "archivo": "caso013.md", "n": "013", "titulo": "Un contenido, cinco formatos" },
+    { "archivo": "caso014.md", "n": "014", "titulo": "El contexto puede vivir fuera del prompt" },
+    { "archivo": "caso015.md", "n": "015", "titulo": "Antes de recomendar, investigar" },
+    { "archivo": "caso016.md", "n": "016", "titulo": "Hablar para construir, escuchar para revisar" },
+    { "archivo": "caso017.md", "n": "017", "titulo": "De una imagen a datos utilizables" },
+    { "archivo": "caso018.md", "n": "018", "titulo": "Aprender a preguntar a los datos" },
+    { "archivo": "caso019.md", "n": "019", "titulo": "La IA como analista de datos" },
+    { "archivo": "caso020.md", "n": "020", "titulo": "¿Qué IA analiza mejor mis datos?" },
+    { "archivo": "caso021.md", "n": "021", "titulo": "Del Excel a un dashboard autónomo" },
+    { "archivo": "caso022.md", "n": "022", "titulo": "Separar los datos de la visualización" },
+    { "archivo": "caso023.md", "n": "023", "titulo": "Del archivo al dato vivo" },
+    { "archivo": "caso024.md", "n": "024", "titulo": "Del dashboard local al dashboard publicado" },
+    { "archivo": "caso025.md", "n": "025", "titulo": "Cuando el análisis se convierte en código" }
+  ]
+}
