@@ -35,7 +35,7 @@
     { "archivo": "caso022.md", "n": "022", "titulo": "Separar los datos de la visualización" },
     { "archivo": "caso023.md", "n": "023", "titulo": "Del archivo al dato vivo" },
     { "archivo": "caso024.md", "n": "024", "titulo": "Del dashboard local al dashboard publicado" },
-    { "archivo": "caso025.md", "n": "025", "titulo": "Cuando el análisis se convierte en código" }
+    { "archivo": "caso025.md", "n": "025", "titulo": "Cuando el análisis se convierte en código" },
     { "archivo": "caso026.md", "n": "026", "titulo": "Generacion de Diapositivas en Gemini" },
     { "archivo": "caso027.md", "n": "027", "titulo": "Generacion de Diapositivas HTML en Gemini" },
     { "archivo": "caso028.md", "n": "028", "titulo": "WEB CV" },
