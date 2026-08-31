@@ -15,6 +15,11 @@ estado: En Desarrollo
 
 #### Recomendaciones · Agosto 2026
 
+**Curso de CLAUDE desde CERO (Completo)**
+8 de agosto de 2026
+
+https://www.youtube.com/watch?v=ZLheIoICg7A
+
 **IA nivel OPUS en tu PC: Gratis e ILIMITADA**
 23 de agosto de 2026
 
