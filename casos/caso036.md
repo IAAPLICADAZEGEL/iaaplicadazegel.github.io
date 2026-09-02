@@ -27,7 +27,7 @@ area: General
 
 ### Imagen de referencia
 
-![](images/036_b.jpg)
+![](images/036_b.jpeg)
 
 ## Acción
 
