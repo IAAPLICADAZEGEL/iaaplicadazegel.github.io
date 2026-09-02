@@ -40,6 +40,12 @@
     { "archivo": "caso027.md", "n": "027", "titulo": "Generacion de Diapositivas HTML en Gemini" },
     { "archivo": "caso028.md", "n": "028", "titulo": "WEB CV" },
     { "archivo": "caso029.md", "n": "029", "titulo": "WEB EMPRESA" },
-    { "archivo": "caso030.md", "n": "030", "titulo": "Sistema WEB Proforma" }
+    { "archivo": "caso030.md", "n": "030", "titulo": "Sistema WEB Proforma" },
+    { "archivo": "caso031.md", "n": "031", "titulo": "Imagen - Prompt Básico" },
+    { "archivo": "caso032.md", "n": "032", "titulo": "Imagen - Prompts estructurados" },
+    { "archivo": "caso033.md", "n": "033", "titulo": "Imagen - Dirección del proceso" },
+    { "archivo": "caso034.md", "n": "034", "titulo": "Imagen - Obteniendo el estilo" },
+    { "archivo": "caso035.md", "n": "035", "titulo": "Imagen - Imagen a imagen" },
+    { "archivo": "caso036.md", "n": "036", "titulo": "Imagen - Caso integrador con múltiples componentes" }
   ]
 }
