@@ -46,6 +46,10 @@
     { "archivo": "caso033.md", "n": "033", "titulo": "Imagen - Dirección del proceso" },
     { "archivo": "caso034.md", "n": "034", "titulo": "Imagen - Obteniendo el estilo" },
     { "archivo": "caso035.md", "n": "035", "titulo": "Imagen - Imagen a imagen" },
-    { "archivo": "caso036.md", "n": "036", "titulo": "Imagen - Caso integrador con múltiples componentes" }
+    { "archivo": "caso036.md", "n": "036", "titulo": "Imagen - Caso integrador con múltiples componentes" },
+    { "archivo": "caso037.md", "n": "037", "titulo": "Música - Generación básica" },
+    { "archivo": "caso038.md", "n": "038", "titulo": "Música - Generación profesional completa" }
+
+    
   ]
 }
