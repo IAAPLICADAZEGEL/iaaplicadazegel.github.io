@@ -8,7 +8,7 @@ area: General
 
 ## Añade una planta palmera de salón
 
-![](images/035_a.jpg)
+![](images/035_a.jpeg)
 
 ```text
 Añade una planta palmera de salón.
@@ -16,7 +16,7 @@ Añade una planta palmera de salón.
 
 ## Mejora la foto añadiendo iluminación cinematográfica
 
-![](images/035_b.jpg)
+![](images/035_b.jpeg)
 
 ```text
 Mejora la foto añadiendo iluminación cinematográfica.
@@ -126,7 +126,7 @@ Coloriza la imagen.
 
 ![](images/035_l_a.jpeg)
 
-![](images/035_l_b.jpeg)
+
 
 ```text
 Crea una foto de estas dos personas que parezca tomada con una cámara Polaroid.
