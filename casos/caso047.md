@@ -1,4 +1,3 @@
-
 ---
 titulo: Sistema contextual de contenido para redes sociales
 modulo: Caso 047
