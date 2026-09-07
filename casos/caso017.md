@@ -16,18 +16,13 @@ area: General
 
 ## Acción
 
+![ref](https://sinia.minam.gob.pe/sites/default/files/archivos/public/docs/RESOLUCION%20DIRECTORAL%20N%20000005-2022-SERNANP-DDE.jpeg)
+
 1. Adjuntar la fotografía o escaneo del documento.
 2. Enviar:
 
 ```text
-Extrae el texto de esta imagen mediante OCR.
-
-Conserva correctamente:
-- cifras;
-- fechas;
-- nombres;
-- números de documento;
-- estructura del contenido.
+OCR esta imagen
 ````
 
 3. Comparar el resultado con la imagen original y corregir posibles errores.
