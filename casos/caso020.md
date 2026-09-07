@@ -14,7 +14,8 @@ area: General
 
 ## Recurso
 
-> Archivo: `002-A-gastos_ejecutivos.xlsx`
+> Archivo: [`002-A-gastos_ejecutivos.xlsx`](https://docs.google.com/spreadsheets/d/1FLZgjkVE1ODmr4K6obbI8MyhiuMpcL0F/edit?usp=drive_link&ouid=114704156722391767374&rtpof=true&sd=true
+)
 
 ## Acción
 
