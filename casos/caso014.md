@@ -24,6 +24,8 @@ GUIA_visual.md
 CASOS_material.md
 ````
 
+> EJEMPLO : [Descargar](https://drive.google.com/file/d/14Qs4KX87614kWm-9Me1R5osJmCWdt4cp/view?usp=sharing)
+
 2. Adjuntar únicamente los archivos necesarios para cada tarea.
 
 3. Para crear una publicación:
