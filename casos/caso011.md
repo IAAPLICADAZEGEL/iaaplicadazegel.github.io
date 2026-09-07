@@ -54,8 +54,10 @@ El informe servirá como registro académico.
 3. Guardar el archivo como:
 
 ```text
-[informe_sesion.md](https://docs.google.com/document/d/e/2PACX-1vQGVQfuWYvySy3wjXX7TV_kLeyCZTpRTitvmnGRy_ctMOktfYu1lZSUCKSLXxyL2jcLplhbd8-yl4mi/pub)
+[informe_sesion.md]
 ```
+
+>[informe_sesion.md](https://docs.google.com/document/d/e/2PACX-1vQGVQfuWYvySy3wjXX7TV_kLeyCZTpRTitvmnGRy_ctMOktfYu1lZSUCKSLXxyL2jcLplhbd8-yl4mi/pub)
 
 4. En una conversación nueva, adjuntar el archivo junto con otra transcripción.
 5. Enviar:
