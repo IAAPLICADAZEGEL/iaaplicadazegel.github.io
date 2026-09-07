@@ -1,4 +1,3 @@
-````markdown
 ---
 titulo: Registro de finanzas personales con Streamlit
 modulo: Caso 051
