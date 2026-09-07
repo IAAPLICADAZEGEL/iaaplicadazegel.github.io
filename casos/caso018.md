@@ -14,7 +14,7 @@ area: General
 
 ## Recurso
 
-> Archivo: `002-B-gastos_personales.xlsx`
+> Archivo: [`002-B-gastos_personales.xlsx`](https://docs.google.com/spreadsheets/d/1WhLp9AxCiAcpQB9jP1kLf8A02zWWVhui/edit?usp=drive_link&ouid=114704156722391767374&rtpof=true&sd=true)
 
 ## Acción
 
