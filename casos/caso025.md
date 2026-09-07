@@ -1,80 +1,62 @@
 ---
-titulo: Cuando el análisis se convierte en código
+titulo: Análisis reproducible con Python
 modulo: Caso 025
 area: General
-resumen: Por qué conservar el procedimiento, y no solo el resultado, cambia lo que podemos hacer con un análisis que se repite.
 ---
 
-## A. Situación
+## Herramientas
 
-Venimos calculando métricas, generando gráficos y armando tableros con ayuda de la
-IA. Ahora el mismo análisis hay que repetirlo cada mes, con datos nuevos. Podríamos
-rehacer la conversación entera, y saldrían resultados; lo que no quedaría es la
-certeza de haber hecho exactamente lo mismo que el mes anterior.
+> [ChatGPT](https://chatgpt.com/)
+>
+> [Claude](https://claude.ai/)
+>
+> [Gemini](https://gemini.google.com/)
+>
+> [Google Colab](https://colab.research.google.com/)
 
-## B. Objetivo
+## Recurso
 
-Comprender qué se gana al conservar el procedimiento de un análisis como código
-ejecutable, además de sus resultados.
+> Utilizar uno de estos archivos:
+>
+> `002-A-gastos_ejecutivos.xlsx`  
+> `002-B-gastos_personales.xlsx`  
+> `002-C-ventas_ultimos_3m.xlsx`
 
-## C. Requerimientos
+## Acción
 
-- Cuenta activa en uno de estos asistentes (la versión gratuita basta):
-  - [ChatGPT](https://chatgpt.com)
-  - [Claude](https://claude.ai)
-  - [Gemini](https://gemini.google.com)
-- Uno de los datasets del bloque: `002-A-gastos_ejecutivos.xlsx`, `002-B-gastos_personales.xlsx` o `002-C-ventas_ultimos_3m.xlsx`.
-- Una cuenta de Google para trabajar en [Google Colab](https://colab.research.google.com).
-- Opcionalmente, un entorno Jupyter instalado en el equipo.
+1. Adjuntar el archivo de datos.
+2. Solicitar el procedimiento en código:
 
-## D. Desarrollo
+```text
+Genera el código Python necesario para reproducir este análisis.
 
-Recorremos el ciclo **datos + objetivo → IA → código → ejecutar → resultado → reejecutar**.
+El código debe:
 
-1. **Pedir el procedimiento.** Cambiamos lo que solicitamos: no el análisis, sino
-   el modo de producirlo:
+- cargar el archivo Excel;
+- identificar y limpiar los datos necesarios;
+- calcular las principales métricas descriptivas;
+- generar gráficos relevantes;
+- mostrar los resultados de forma clara.
 
-       Genera el código Python necesario para reproducir este análisis: carga
-       el Excel, calcula las métricas descriptivas principales y genera los
-       gráficos correspondientes. Utiliza bibliotecas habituales de análisis
-       de datos.
+Utiliza pandas y matplotlib.
 
-2. **Ejecutar en el navegador.** Abrimos Google Colab, subimos el dataset, pegamos
-   el código y ejecutamos las celdas. Corregimos lo que falle: rutas, nombres de
-   columna, tipos de dato.
-3. **Trabajar con la IA dentro del entorno.** Usamos la asistencia disponible en el
-   propio Colab para explicar o modificar partes del código, y comparamos ese
-   recorrido con el anterior: pedir fuera, copiar y pegar, ejecutar.
-4. **Ejecutar en nuestro equipo.** Repetimos el mismo análisis en un entorno
-   Jupyter local y verificamos si las métricas principales coinciden con las de
-   Colab.
-5. **Modificar la pregunta.** Cambiamos el eje del análisis:
+Entrega código completo, organizado y listo para ejecutar en Google Colab.
+````
 
-       En lugar de analizar por categoría, compara los resultados por mes.
+3. Abrir [Google Colab](https://colab.research.google.com/).
+4. Subir el archivo y ejecutar el código generado.
+5. Si aparece un error, copiarlo al asistente:
 
-   Ajustamos el código con ayuda de la IA y volvemos a ejecutar.
-6. **Reejecutar con datos nuevos.** Sustituimos el archivo por otro de estructura
-   compatible y corremos el notebook sin tocar una línea. Guardamos el par
-   `analisis.ipynb` + dataset como la unidad que conservamos.
+```text
+Analiza este error y corrige el código completo:
 
-> El notebook produjo los mismos números dos veces, en dos entornos distintos. Eso
-> no lo puede afirmar una conversación, por buena que haya sido.
+[PEGAR ERROR]
+```
 
-## E. Conceptos
+6. Modificar posteriormente el análisis, por ejemplo:
 
-- **Python:** lenguaje ampliamente utilizado para análisis de datos.
-- **Notebook:** documento ejecutable organizado en celdas.
-- **Biblioteca:** conjunto reutilizable de funcionalidades disponible para un lenguaje.
-- **Reproducibilidad:** capacidad de repetir un procedimiento y obtener resultados consistentes en las mismas condiciones.
-- **Procedimiento ejecutable:** análisis conservado en una forma que puede inspeccionarse, corregirse y volver a correr.
+```text
+Ahora adapta el código para comparar los resultados por mes.
+```
 
-## F. Comprobación
-
-Un compañero sostiene que pedir código es un rodeo innecesario, porque el chat ya
-entrega las métricas y los gráficos correctos en la mitad del tiempo. ¿Dónde se
-rompe ese razonamiento?
-
-- a) En la inspección de los cálculos, porque el código deja a la vista qué filas se descartaron y cómo se agruparon, mientras que la conversación solo muestra el número final.
-- b) En que la conversación entrega el resultado y no el procedimiento.
-- c) En la comparación entre periodos, dado que dos conversaciones distintas pueden resolver el mismo pedido con criterios diferentes y volver no comparables los meses analizados.
-- d) En el tiempo total, ya que la ventaja inicial del chat se pierde apenas el análisis debe repetirse mes a mes sobre datos nuevos con la misma estructura.
+7. Sustituir el dataset por uno nuevo con la misma estructura y volver a ejecutar el mismo código para comprobar que el análisis es reproducible.
