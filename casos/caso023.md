@@ -1,57 +1,70 @@
 ---
-titulo: Dashboard conectado a datos remotos
+titulo: Dashboard con datos en tiempo real desde Google Sheets
 modulo: Caso 023
 area: General
 ---
 
 ## Herramientas
 
+> [Google Sheets](https://sheets.google.com/)
+>
 > [ChatGPT](https://chatgpt.com/)
 >
 > [Claude](https://claude.ai/)
 >
 > [Gemini](https://gemini.google.com/)
->
-> [Google Sheets](https://sheets.google.com/)
+
+## Recurso
+
+> [Archivo de ventas de referencia](https://docs.google.com/spreadsheets/d/1Y46UmZxP-1W2NKbJONhmLI2W-ni7Zex0/edit?usp=sharing&ouid=114704156722391767374&rtpof=true&sd=true)
 
 ## Acción
 
-1. Subir los datos de práctica a Google Sheets, conservando los mismos nombres de columna.
+1. Subir el archivo Excel a Google Drive.
+2. Abrirlo con Google Sheets.
+3. Revisar los datos:
+   - encabezados sin espacios innecesarios;
+   - valores numéricos correctamente formateados;
+   - sin columnas vacías.
 
-2. Obtener una fuente accesible en formato CSV o JSON.
-
-3. Enviar al asistente:
+4. En Google Sheets ir a:
 
 ```text
-Adapta este dashboard para que recupere los registros desde la siguiente fuente remota en lugar de leer un archivo local.
-
-Fuente:
-[PEGAR URL CSV O JSON]
-
-Mantén:
-- los mismos indicadores;
-- gráficos;
-- filtros;
-- tabla;
-- estructura visual.
-
-Utiliza fetch para cargar los datos.
+Archivo → Compartir → Publicar en la web
 ````
 
-4. Guardar el HTML actualizado y abrirlo en el navegador.
+5. Seleccionar la hoja correspondiente y publicarla como **CSV**.
 
-5. Agregar un nuevo registro en Google Sheets y recargar el dashboard para comprobar que se actualiza.
+6. Copiar la URL CSV generada.
 
-6. Probar qué ocurre si:
-
-* no hay conexión a Internet;
-* cambia la estructura de la hoja;
-* la fuente deja de ser accesible.
-
-7. Comparar las tres variantes:
+7. Enviar al asistente:
 
 ```text
-Datos incrustados en HTML
-Datos en archivo externo
-Datos desde fuente remota
+Genera un dashboard descriptivo e interactivo en un único archivo HTML.
+
+Fuente de datos:
+[PEGAR URL CSV DE GOOGLE SHEETS]
+
+Requisitos:
+
+- carga los datos automáticamente con fetch();
+- utiliza un proxy CORS cuando sea necesario;
+- valida la estructura básica del CSV;
+- incluye un conjunto de datos de respaldo si la carga falla;
+- utiliza Chart.js para los gráficos;
+- incluye indicadores y gráficos relevantes para analizar las ventas;
+- diseño profesional y responsivo;
+- muestra un mensaje si los datos no pueden cargarse.
+
+Todo debe funcionar desde un único archivo HTML, sin backend.
 ```
+
+8. Guardar el resultado como:
+
+```text
+dashboard_ventas.html
+```
+
+9. Abrirlo en el navegador.
+
+10. Modificar un registro en Google Sheets, recargar el dashboard y comprobar que la información se actualiza.
