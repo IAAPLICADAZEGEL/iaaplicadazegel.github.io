@@ -1,4 +1,3 @@
-```markdown
 ---
 titulo: Publicación de un dashboard web
 modulo: Caso 024
@@ -43,4 +42,3 @@ area: General
 - mantenimiento.
 
 5. Verificar siempre que el enlace publicado funcione para otros usuarios y no únicamente desde la cuenta o equipo donde fue creado.
-```
