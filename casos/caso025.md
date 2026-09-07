@@ -18,9 +18,9 @@ area: General
 
 > Utilizar uno de estos archivos:
 >
-> `002-A-gastos_ejecutivos.xlsx`  
-> `002-B-gastos_personales.xlsx`  
-> `002-C-ventas_ultimos_3m.xlsx`
+> [`002-A-gastos_ejecutivos.xlsx`  ](https://docs.google.com/spreadsheets/d/1FLZgjkVE1ODmr4K6obbI8MyhiuMpcL0F/edit?usp=drive_link&ouid=114704156722391767374&rtpof=true&sd=true)
+> [`002-B-gastos_personales.xlsx`  ](https://docs.google.com/spreadsheets/d/1WhLp9AxCiAcpQB9jP1kLf8A02zWWVhui/edit?usp=drive_link&ouid=114704156722391767374&rtpof=true&sd=true)
+> [`002-C-ventas_ultimos_3m.xlsx`](https://docs.google.com/spreadsheets/d/1Q5A_CZ4xkUax5WOCZ5wSt9Ww4ccDzlTk/edit?usp=drive_link&ouid=114704156722391767374&rtpof=true&sd=true)
 
 ## Acción
 
